@@ -4,11 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday Jaanu ❤️</title>
 
 <style>
+
+/* =========================================================
+   GENERAL
+========================================================= */
 
 * {
     margin: 0;
@@ -16,31 +22,62 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
 
     min-height: 100vh;
 
-    overflow: hidden;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-family: Georgia, "Times New Roman", serif;
+    color: #703b52;
+
+    overflow-x: hidden;
 
     background:
-        radial-gradient(circle at 20% 20%, #ffffff, transparent 25%),
-        radial-gradient(circle at 80% 80%, #ffd6e5, transparent 30%),
-        linear-gradient(135deg, #fff0f5, #ffe0eb, #fff7fa);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    color: #8d3155;
+        linear-gradient(
+            135deg,
+            #fff4f8,
+            #ffe1ec,
+            #fff8fb
+        );
 
 }
 
 
-/* ---------------- FLOATING OBJECTS ---------------- */
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+.page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: none;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.page.active {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   FLOATING OBJECTS
+========================================================= */
 
 .floating {
 
@@ -48,13 +85,14 @@ body {
 
     pointer-events: none;
 
-    z-index: 1;
+    z-index: 2;
 
-    animation: floatAround linear infinite;
+    animation:
+        floatUp linear forwards;
 
 }
 
-@keyframes floatAround {
+@keyframes floatUp {
 
     0% {
 
@@ -73,8 +111,8 @@ body {
     50% {
 
         transform:
-            translateY(40vh)
-            translateX(30px)
+            translateY(45vh)
+            translateX(35px)
             rotate(180deg);
 
     }
@@ -93,36 +131,160 @@ body {
 }
 
 
-/* ---------------- MAIN CARD ---------------- */
+/* =========================================================
+   COMMON BUTTONS
+========================================================= */
 
-.card {
+.next-button,
+.back-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+.next-button {
+
+    margin-top: 30px;
+
+    padding:
+        15px 30px;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6f91,
+            #c44569
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(196,69,105,.3);
+
+}
+
+.next-button:hover {
+
+    transform:
+        scale(1.07)
+        translateY(-2px);
+
+}
+
+.back-button {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    z-index: 100;
+
+    padding:
+        10px 18px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    color: #a93661;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.1);
+
+}
+
+
+/* =========================================================
+   PAGE 1
+========================================================= */
+
+#page1 {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px 15px;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            white,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #ffd6e5,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #ffe0eb,
+            #fff7fa
+        );
+
+}
+
+
+.main-card {
 
     position: relative;
 
     z-index: 5;
 
-    width: min(90%, 850px);
+    width:
+        min(92%, 850px);
 
-    max-height: 90vh;
+    max-height: 92vh;
 
     overflow-y: auto;
 
-    padding: 45px 30px;
+    padding:
+        45px 30px;
 
     text-align: center;
 
-    background: rgba(255,255,255,.68);
+    background:
+        rgba(255,255,255,.72);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     border-radius: 30px;
 
-    border: 2px solid rgba(255,255,255,.8);
+    border:
+        2px solid
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 20px 60px rgba(160,60,100,.18);
+        0 20px 60px
+        rgba(160,60,100,.18);
 
-    animation: cardAppear 1.3s ease;
+    animation:
+        cardAppear 1.2s ease;
 
 }
 
@@ -151,23 +313,28 @@ body {
 }
 
 
-/* ---------------- MAIN TITLE ---------------- */
-
 .main-title {
 
-    font-size: clamp(30px, 7vw, 62px);
-
-    color: #c02f62;
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            62px
+        );
 
     line-height: 1.1;
 
-    margin-bottom: 18px;
+    color: #c02f62;
+
+    margin-bottom: 20px;
 
     text-shadow:
         2px 2px white,
-        0 5px 15px rgba(192,47,98,.2);
+        0 5px 15px
+        rgba(192,47,98,.2);
 
-    animation: heartbeat 2s infinite;
+    animation:
+        heartbeat 2s infinite;
 
 }
 
@@ -184,26 +351,30 @@ body {
 }
 
 
-/* ---------------- INTRO ---------------- */
-
 .intro {
 
-    font-size: clamp(16px, 3.5vw, 21px);
+    font-size:
+        clamp(
+            16px,
+            3.5vw,
+            21px
+        );
 
     line-height: 1.7;
-
-    color: #714054;
 
     margin-bottom: 30px;
 
 }
 
 
-/* ---------------- SECTION ---------------- */
-
 .section-title {
 
-    font-size: clamp(24px, 5vw, 38px);
+    font-size:
+        clamp(
+            25px,
+            5vw,
+            38px
+        );
 
     color: #b52f60;
 
@@ -214,16 +385,17 @@ body {
 
 .message {
 
-    font-size: clamp(16px, 3.5vw, 19px);
+    font-size:
+        clamp(
+            16px,
+            3.5vw,
+            19px
+        );
 
     line-height: 1.8;
 
-    color: #704052;
-
 }
 
-
-/* ---------------- SPECIAL QUOTE ---------------- */
 
 .special {
 
@@ -236,19 +408,25 @@ body {
     background:
         linear-gradient(
             135deg,
-            rgba(255,220,232,.7),
-            rgba(255,255,255,.8)
+            rgba(255,220,232,.75),
+            rgba(255,255,255,.85)
         );
 
     box-shadow:
-        inset 0 0 20px rgba(255,255,255,.8);
+        inset 0 0 20px
+        rgba(255,255,255,.8);
 
 }
 
 
 .special p {
 
-    font-size: clamp(22px, 5vw, 34px);
+    font-size:
+        clamp(
+            21px,
+            5vw,
+            32px
+        );
 
     font-weight: bold;
 
@@ -259,269 +437,22 @@ body {
 }
 
 
-/* ---------------- BUTTON ---------------- */
+/* =========================================================
+   PAGE 2
+========================================================= */
 
-.next-button {
+#page2 {
 
-    margin-top: 30px;
-
-    padding: 15px 30px;
-
-    border: none;
-
-    border-radius: 40px;
+    text-align: center;
 
     background:
-        linear-gradient(
-            135deg,
-            #ff6f91,
-            #c44569
-        );
 
-    color: white;
+        radial-gradient(
+            circle at 50% 20%,
+            white,
+            transparent 30%
+        ),
 
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(196,69,105,.3);
-
-    transition: .3s;
-
-}
-
-.next-button:hover {
-
-    transform:
-        scale(1.07)
-        translateY(-2px);
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-
-<script>
-
-const objects = [
-    "🦋",
-    "🦋",
-    "🌸",
-    "🌷",
-    "💗",
-    "❤️",
-    "✨",
-    "🌸",
-    "🦋",
-    "💖"
-];
-
-function createFloating() {
-
-    const element =
-        document.createElement("div");
-
-    element.className =
-        "floating";
-
-    element.textContent =
-        objects[
-            Math.floor(
-                Math.random() *
-                objects.length
-            )
-        ];
-
-    element.style.left =
-        Math.random() * 100 + "vw";
-
-    element.style.fontSize =
-        (18 + Math.random() * 22) + "px";
-
-    element.style.animationDuration =
-        (8 + Math.random() * 8) + "s";
-
-    element.style.animationDelay =
-        Math.random() * 5 + "s";
-
-    document.body.appendChild(element);
-
-    setTimeout(
-        () => element.remove(),
-        18000
-    );
-}
-
-setInterval(createFloating, 600);
-
-</script>
-
-
-<div class="card">
-
-
-    <h1 class="main-title">
-
-        Happyyyyyyyyy walaaaaaaa
-        birthdayyyyyyyyyy
-        jaaanuuuuuuuuuu
-        chuhiyaaaa ❤️
-
-    </h1>
-
-
-    <p class="intro">
-
-        Your 18th birthday deserves to be special,
-        so I created a website specifically for you babe...
-        myself. ❤️
-
-    </p>
-
-
-    <h2 class="section-title">
-
-        🌷 Today Is About YOU
-
-    </h2>
-
-
-    <p class="message">
-
-        Aaj ka din mere liye sirf ek normal date nahi hai.
-
-        <br><br>
-
-        Aaj woh din hai jis din
-        <strong>meri favourite person duniya mein aayi thi.</strong>
-        🥹❤️
-
-        <br><br>
-
-        Aur honestly, kabhi kabhi mujhe lagta hai ki tumhe
-        pata bhi nahi hai ki tumne meri life ko kitna beautiful
-        bana diya hai.
-
-        <br><br>
-
-        Tumhari life ka ek aur saal complete hua hai...
-
-        <br><br>
-
-        but for me, it's another reason to be grateful that
-        <strong>you exist, that I found you, and that somehow
-        our paths crossed.</strong> 🫶🏻
-
-        <br><br>
-
-        So today, before anything else...
-
-        <br><br>
-
-        <strong>
-            Happy Birthday to the person who means more to me
-            than words can properly explain. 🎂❤️
-        </strong>
-
-    </p>
-
-
-    <div class="special">
-
-        <p>
-
-            AB to adult ho gye ho pure 18 saal ke ho gyeeee 😂
-
-            <br>
-
-            Mujhee adopt karloooo LOL XD ❤️
-
-        </p>
-
-    </div>
-
-
-    <div class="special">
-
-        <p>
-
-            You are so special to me...
-
-            <br><br>
-
-            Do you know what?
-
-            <br><br>
-
-            When someone asks me,
-
-            <br>
-
-            "What's so special about her?"
-
-            <br><br>
-
-            <strong>
-                "There is nothing special without you."
-            </strong>
-
-            🦋💗
-
-        </p>
-
-    </div>
-
-
-    <button
-        class="next-button"
-        onclick="window.location.href='page2.html'"
-    >
-
-        Click For More Surprise ✨
-
-    </button>
-
-
-</div>
-
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>A Little Something For You 🌸</title>
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-
-    font-family: Georgia, serif;
-
-    background:
-        radial-gradient(circle at 50% 20%, white, transparent 30%),
         linear-gradient(
             135deg,
             #fff5f8,
@@ -529,44 +460,10 @@ body {
             #fff9fb
         );
 
-    color: #703b52;
-
 }
 
 
-/* ---------------- BACK BUTTON ---------------- */
-
-.back {
-
-    position: fixed;
-
-    top: 18px;
-    left: 18px;
-
-    z-index: 100;
-
-    padding: 10px 18px;
-
-    border: none;
-
-    border-radius: 25px;
-
-    background: rgba(255,255,255,.9);
-
-    color: #a93661;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-}
-
-
-/* ---------------- TITLE ---------------- */
-
-.title {
-
-    text-align: center;
+.page-title {
 
     padding-top: 70px;
 
@@ -576,15 +473,22 @@ body {
 
 }
 
-.title h1 {
 
-    font-size: clamp(30px, 7vw, 50px);
+.page-title h1 {
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            50px
+        );
 
     color: #b52f60;
 
 }
 
-.title p {
+
+.page-title p {
 
     margin-top: 10px;
 
@@ -603,12 +507,11 @@ body {
 
     height: 400px;
 
-    margin: 20px auto;
+    margin:
+        15px auto 0;
 
 }
 
-
-/* ---------------- PETALS ---------------- */
 
 .petal {
 
@@ -626,21 +529,27 @@ body {
     transition: .4s;
 
     box-shadow:
-        inset 0 0 20px rgba(255,255,255,.5),
-        0 7px 15px rgba(0,0,0,.12);
+        inset 0 0 20px
+        rgba(255,255,255,.5),
+
+        0 7px 15px
+        rgba(0,0,0,.12);
 
 }
 
 
-/* TOP */
+.petal:hover {
+
+    filter:
+        brightness(1.08);
+
+}
+
 
 .petal1 {
 
     left: 112px;
     top: 5px;
-
-    transform:
-        rotate(0deg);
 
     background:
         linear-gradient(
@@ -651,8 +560,6 @@ body {
 
 }
 
-
-/* TOP RIGHT */
 
 .petal2 {
 
@@ -672,8 +579,6 @@ body {
 }
 
 
-/* BOTTOM RIGHT */
-
 .petal3 {
 
     right: 55px;
@@ -691,8 +596,6 @@ body {
 
 }
 
-
-/* BOTTOM LEFT */
 
 .petal4 {
 
@@ -712,8 +615,6 @@ body {
 }
 
 
-/* TOP LEFT */
-
 .petal5 {
 
     left: 20px;
@@ -732,9 +633,9 @@ body {
 }
 
 
-/* ---------------- FLOWER CENTER ---------------- */
+/* ---------------- CENTER ---------------- */
 
-.center {
+.flower-center {
 
     position: absolute;
 
@@ -771,12 +672,73 @@ body {
     z-index: 20;
 
     box-shadow:
-        0 5px 15px rgba(0,0,0,.15);
+        0 5px 15px
+        rgba(0,0,0,.15);
 
 }
 
 
-/* ---------------- MESSAGE POPUP ---------------- */
+/* ---------------- BUTTERFLIES / BEES ---------------- */
+
+.creature {
+
+    position: fixed;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation:
+        flyAround 12s linear infinite;
+
+}
+
+@keyframes flyAround {
+
+    0% {
+
+        transform:
+            translate(-10vw,40vh)
+            rotate(0deg);
+
+    }
+
+    25% {
+
+        transform:
+            translate(25vw,10vh)
+            rotate(15deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(70vw,35vh)
+            rotate(-10deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate(40vw,75vh)
+            rotate(15deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate(110vw,20vh)
+            rotate(0deg);
+
+    }
+
+}
+
+
+/* ---------------- PETAL POPUP ---------------- */
 
 .message-box {
 
@@ -784,7 +746,7 @@ body {
 
     inset: 0;
 
-    z-index: 200;
+    z-index: 300;
 
     display: none;
 
@@ -795,9 +757,10 @@ body {
     padding: 20px;
 
     background:
-        rgba(80,20,45,.35);
+        rgba(80,20,45,.38);
 
-    backdrop-filter: blur(7px);
+    backdrop-filter:
+        blur(7px);
 
 }
 
@@ -813,13 +776,15 @@ body {
 
     position: relative;
 
-    width: min(90vw, 650px);
+    width:
+        min(90vw,650px);
 
     max-height: 85vh;
 
     overflow-y: auto;
 
-    padding: 45px 28px 35px;
+    padding:
+        48px 28px 35px;
 
     border-radius: 28px;
 
@@ -831,7 +796,8 @@ body {
         );
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,.25);
+        0 25px 70px
+        rgba(0,0,0,.25);
 
     text-align: center;
 
@@ -879,7 +845,8 @@ body {
 
     border-radius: 50%;
 
-    background: #ffd6e4;
+    background:
+        #ffd6e4;
 
     color: #a82f5a;
 
@@ -907,434 +874,37 @@ body {
 
     line-height: 1.8;
 
-    color: #704052;
+}
+
+
+.page2-next {
+
+    margin:
+        5px auto 35px;
 
 }
 
 
-/* ---------------- FLYING CREATURES ---------------- */
+/* =========================================================
+   PAGE 3 — PHOTO ALBUM
+========================================================= */
 
-.creature {
-
-    position: fixed;
-
-    z-index: 10;
-
-    pointer-events: none;
-
-    animation:
-        flyAround 12s linear infinite;
-
-}
-
-@keyframes flyAround {
-
-    0% {
-
-        transform:
-            translate(-10vw, 40vh)
-            rotate(0deg);
-
-    }
-
-    25% {
-
-        transform:
-            translate(25vw, 10vh)
-            rotate(15deg);
-
-    }
-
-    50% {
-
-        transform:
-            translate(70vw, 35vh)
-            rotate(-10deg);
-
-    }
-
-    75% {
-
-        transform:
-            translate(40vw, 75vh)
-            rotate(15deg);
-
-    }
-
-    100% {
-
-        transform:
-            translate(110vw, 20vh)
-            rotate(0deg);
-
-    }
-
-}
-
-
-/* ---------------- NEXT BUTTON ---------------- */
-
-.next {
-
-    display: block;
-
-    margin: 10px auto 40px;
-
-    padding: 15px 28px;
-
-    border: none;
-
-    border-radius: 35px;
+#page3 {
 
     background:
-        linear-gradient(
-            135deg,
-            #ff6f91,
-            #c44569
-        );
 
-    color: white;
+        radial-gradient(
+            circle at 10% 15%,
+            white,
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            #ffd5e5,
+            transparent 30%
+        ),
 
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(196,69,105,.3);
-
-}
-
-
-/* ---------------- MOBILE ---------------- */
-
-@media(max-width:600px) {
-
-    .flower-area {
-
-        transform: scale(.85);
-
-        margin-top: 0;
-
-        margin-bottom: -15px;
-
-    }
-
-    .message-content {
-
-        max-height: 80vh;
-
-        padding:
-            45px 22px 30px;
-
-    }
-
-    .message-content p {
-
-        font-size: 16px;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<button
-    class="back"
-    onclick="window.location.href='index.html'"
->
-
-    ← Previous Page
-
-</button>
-
-
-<div class="title">
-
-    <h1>
-        A Flower Full Of Little Things 🌸
-    </h1>
-
-    <p>
-        Pluck one petal at a time...
-    </p>
-
-</div>
-
-
-<!-- FLYING BUTTERFLIES -->
-
-<div
-    class="creature"
-    style="font-size:30px; top:20%;"
->
-    🦋
-</div>
-
-<div
-    class="creature"
-    style="font-size:24px; animation-delay:4s;"
->
-    🦋
-</div>
-
-
-<!-- FLYING BEES -->
-
-<div
-    class="creature"
-    style="
-        font-size:25px;
-        animation-duration:10s;
-        animation-delay:2s;
-    "
->
-    🐝
-</div>
-
-<div
-    class="creature"
-    style="
-        font-size:22px;
-        animation-duration:15s;
-        animation-delay:6s;
-    "
->
-    🐝
-</div>
-
-
-<!-- FLOWER -->
-
-<div class="flower-area">
-
-
-    <div
-        class="petal petal1"
-        onclick="openMessage(0)"
-    ></div>
-
-
-    <div
-        class="petal petal2"
-        onclick="openMessage(1)"
-    ></div>
-
-
-    <div
-        class="petal petal3"
-        onclick="openMessage(2)"
-    ></div>
-
-
-    <div
-        class="petal petal4"
-        onclick="openMessage(3)"
-    ></div>
-
-
-    <div
-        class="petal petal5"
-        onclick="openMessage(4)"
-    ></div>
-
-
-    <div class="center">
-
-        Click A
-        Petal 🌸
-
-    </div>
-
-</div>
-
-
-<button
-    class="next"
-    onclick="window.location.href='page3.html'"
->
-
-    Off to the next page 💌 →
-
-</button>
-
-
-<!-- MESSAGE POPUP -->
-
-<div
-    class="message-box"
-    id="messageBox"
->
-
-    <div class="message-content">
-
-        <button
-            class="close"
-            onclick="closeMessage()"
-        >
-            ×
-        </button>
-
-        <h2 id="messageTitle"></h2>
-
-        <p id="messageText"></p>
-
-    </div>
-
-</div>
-
-
-<script>
-
-const messages = [
-
-{
-
-title:
-"You Deserve the World 🌎",
-
-text:
-`You are special, not because it's your birthday, it's because you are youu.
-
-And if I could really make each day memorable for you, I definitely would.
-
-I feel like I am getting the gift here — to have such a wonderful person to love.
-
-I got to know you, I got to laugh with you, I got to spend my time with you... ❤️`
-
-},
-
-{
-
-title:
-"All Those Little Moments ✨",
-
-text:
-`Our relationship is not defined by only big days like farewell, or that bunk.
-
-It's all the small moments that make it special.
-
-Laughing at little things in the ground, making shy eye contacts, just peeking in the class to get a glimpse of you, watching you in secret, sharing lunch and many more which can't be counted.
-
-I wanna cherish these throughout my life and always want to share these moments with our kids in the future. ❤️`
-
-},
-
-{
-
-title:
-"Even From Far Away 🌙",
-
-text:
-`You don't know how much I am wishing right now to just be by your side, watching you blushing and giggling, shedding a tear or two, or anything that you are feeling.
-
-I really want to lie next to you and watch you fall asleep all night long.
-
-However, the distance between us doesn't change the fact of how much you are important to me. ❤️`
-
-},
-
-{
-
-title:
-"For The Girl You're Becoming 🌸",
-
-text:
-`I hope from the bottom of my heart that you succeed in whatever your goals are, grow up and become a nice human.
-
-Now you have turned 18, successfully stepped into adulthood and the most important phase of your life where you have to work hard to achieve what you desire.
-
-Fulfill the dreams you and I saw together.
-
-There are so many beautiful chapters waiting for you in the future and I hope that I get to spend all of them with you. ❤️`
-
-},
-
-{
-
-title:
-"Happy Birthday, My Love ❤️",
-
-text:
-`So here's my final wish for you today:
-
-May you always have something to look forward to, someone to laugh with, somewhere that feels like home, and countless reasons to be proud of the person you're becoming.
-
-And whenever life gets difficult, I hope you remember that somewhere in this world, there's someone who is incredibly grateful that you exist. ❤️`
-
-}
-
-];
-
-
-function openMessage(index) {
-
-    document.getElementById(
-        "messageTitle"
-    ).textContent =
-        messages[index].title;
-
-    document.getElementById(
-        "messageText"
-    ).textContent =
-        messages[index].text;
-
-    document.getElementById(
-        "messageBox"
-    ).classList.add("show");
-
-}
-
-
-function closeMessage() {
-
-    document.getElementById(
-        "messageBox"
-    ).classList.remove("show");
-
-}
-
-</script>
-
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Little Memories ❤️</title>
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-
-    font-family: Georgia, serif;
-
-    background:
-        radial-gradient(circle at 10% 15%, white, transparent 20%),
-        radial-gradient(circle at 90% 80%, #ffd5e5, transparent 30%),
         linear-gradient(
             135deg,
             #fff4f7,
@@ -1342,96 +912,15 @@ body {
             #fff8fa
         );
 
-    color: #713c51;
-
 }
 
 
-/* ---------------- HEARTS ---------------- */
-
-.heart {
-
-    position: fixed;
-
-    bottom: -40px;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    animation:
-        floatHeart linear forwards;
-
-}
-
-@keyframes floatHeart {
-
-    from {
-
-        transform:
-            translateY(0)
-            rotate(0);
-
-        opacity: 0;
-
-    }
-
-    15% {
-        opacity: .8;
-    }
-
-    to {
-
-        transform:
-            translateY(-110vh)
-            rotate(360deg);
-
-        opacity: 0;
-
-    }
-
-}
-
-
-/* ---------------- BACK ---------------- */
-
-.back {
-
-    position: fixed;
-
-    top: 18px;
-    left: 18px;
-
-    z-index: 100;
-
-    padding: 10px 18px;
-
-    border: none;
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,.92);
-
-    color: #a93661;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-}
-
-
-/* ---------------- HEADER ---------------- */
-
-.header {
+.album-header {
 
     text-align: center;
 
     padding:
-        75px
-        20px
-        15px;
+        75px 20px 10px;
 
     position: relative;
 
@@ -1439,7 +928,8 @@ body {
 
 }
 
-.header h1 {
+
+.album-header h1 {
 
     font-size:
         clamp(
@@ -1450,12 +940,10 @@ body {
 
     color: #b52f60;
 
-    text-shadow:
-        2px 2px white;
-
 }
 
-.header p {
+
+.album-header p {
 
     margin-top: 10px;
 
@@ -1485,6 +973,8 @@ body {
 
     width: 100%;
 
+    margin-top: 10px;
+
 }
 
 
@@ -1493,15 +983,13 @@ body {
     position: relative;
 
     width:
-        min(88vw, 540px);
+        min(88vw,540px);
 
     height:
-        min(65vh, 650px);
+        min(62vh,620px);
 
 }
 
-
-/* ---------------- PHOTO ---------------- */
 
 .photo {
 
@@ -1510,9 +998,7 @@ body {
     inset: 0;
 
     padding:
-        12px
-        12px
-        65px;
+        12px 12px 65px;
 
     background: white;
 
@@ -1560,12 +1046,12 @@ body {
 
 .photo.left {
 
-    opacity: .8;
+    opacity: .55;
 
     z-index: 2;
 
     transform:
-        translate(-18px, 12px)
+        translate(-18px,12px)
         rotate(-5deg)
         scale(.96);
 
@@ -1574,12 +1060,12 @@ body {
 
 .photo.right {
 
-    opacity: .8;
+    opacity: .55;
 
     z-index: 3;
 
     transform:
-        translate(18px, 15px)
+        translate(18px,15px)
         rotate(5deg)
         scale(.94);
 
@@ -1653,8 +1139,6 @@ body {
 }
 
 
-/* ---------------- COUNTER ---------------- */
-
 .counter {
 
     position: relative;
@@ -1672,7 +1156,7 @@ body {
 }
 
 
-.music {
+.music-status {
 
     position: relative;
 
@@ -1689,553 +1173,80 @@ body {
 }
 
 
-/* ---------------- NEXT ---------------- */
-
-.next {
+.album-next {
 
     display: block;
 
     margin:
-        25px
-        auto
-        45px;
-
-    padding:
-        15px
-        28px;
-
-    border: none;
-
-    border-radius: 35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff6f91,
-            #c44569
-        );
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-}
-
-
-/* ---------------- MOBILE ---------------- */
-
-@media(max-width:600px) {
-
-    .photo-stack {
-
-        width: 88vw;
-
-        height: 57vh;
-
-    }
-
-    .photo {
-
-        padding:
-            9px
-            9px
-            58px;
-
-    }
-
-    .arrow {
-
-        width: 50px;
-
-        height: 50px;
-
-        font-size: 25px;
-
-    }
-
-    .left-arrow {
-        left: 1%;
-    }
-
-    .right-arrow {
-        right: 1%;
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<button
-    class="back"
-    onclick="goBack()"
->
-
-    ← Previous Page
-
-</button>
-
-
-<div class="header">
-
-    <h1>
-        Our Little Memories 📸❤️
-    </h1>
-
-    <p>
-        Some moments I wish I could pause forever...
-    </p>
-
-</div>
-
-
-<div class="album-area">
-
-
-<button
-    class="arrow left-arrow"
-    onclick="previousPhoto()"
->
-    ←
-</button>
-
-
-<div class="photo-stack">
-
-
-<div
-    class="photo active"
-    onclick="playSong()"
->
-
-    <img
-        src="photos/photo1.jpg"
-        alt="Memory 1"
-    >
-
-    <div class="caption">
-        Our First Memory ❤️
-    </div>
-
-</div>
-
-
-<div
-    class="photo"
-    onclick="playSong()"
->
-
-    <img
-        src="photos/photo2.jpg"
-        alt="Memory 2"
-    >
-
-    <div class="caption">
-        One Of My Favourite Moments ✨
-    </div>
-
-</div>
-
-
-<div
-    class="photo"
-    onclick="playSong()"
->
-
-    <img
-        src="photos/photo3.jpg"
-        alt="Memory 3"
-    >
-
-    <div class="caption">
-        Just Us 🫶🏻
-    </div>
-
-</div>
-
-
-<div
-    class="photo"
-    onclick="playSong()"
->
-
-    <img
-        src="photos/photo4.jpg"
-        alt="Memory 4"
-    >
-
-    <div class="caption">
-        A Moment Worth Remembering 🌷
-    </div>
-
-</div>
-
-
-<div
-    class="photo"
-    onclick="playSong()"
->
-
-    <img
-        src="photos/photo5.jpg"
-        alt="Memory 5"
-    >
-
-    <div class="caption">
-        You + Me ❤️
-    </div>
-
-</div>
-
-
-<div
-    class="photo"
-    onclick="playSong()"
->
-
-    <img
-        src="photos/photo6.jpg"
-        alt="Memory 6"
-    >
-
-    <div class="caption">
-        And Many More To Come... 🌙
-    </div>
-
-</div>
-
-
-</div>
-
-
-<button
-    class="arrow right-arrow"
-    onclick="nextPhoto()"
->
-    →
-</button>
-
-
-</div>
-
-
-<div
-    class="counter"
-    id="counter"
->
-    1 / 6
-</div>
-
-
-<div
-    class="music"
-    id="music"
->
-    🎵 Tap the photo to play its song
-</div>
-
-
-<button
-    class="next"
-    onclick="goNext()"
->
-
-    Off to the next page 💌 →
-
-</button>
-
-
-<script>
-
-/* ---------------- PHOTOS ---------------- */
-
-const photos =
-    document.querySelectorAll(".photo");
-
-let current = 0;
-
-
-/* ---------------- SONGS ---------------- */
-
-const songs = [
-
-    new Audio("music/song1.mp3"),
-
-    new Audio("music/song2.mp3"),
-
-    new Audio("music/song3.mp3"),
-
-    new Audio("music/song4.mp3"),
-
-    new Audio("music/song5.mp3"),
-
-    new Audio("music/song6.mp3")
-
-];
-
-let currentSong = null;
-
-
-/* ---------------- UPDATE ---------------- */
-
-function updatePhotos() {
-
-    photos.forEach(
-        (photo,index) => {
-
-            photo.className = "photo";
-
-            if(index === current) {
-
-                photo.classList.add(
-                    "active"
-                );
-
-            }
-
-            else if(
-                index === current - 1
-            ) {
-
-                photo.classList.add(
-                    "left"
-                );
-
-            }
-
-            else if(
-                index === current + 1
-            ) {
-
-                photo.classList.add(
-                    "right"
-                );
-
-            }
-
-        }
-    );
-
-
-    document.getElementById(
-        "counter"
-    ).textContent =
-        `${current + 1} / ${photos.length}`;
-
-
-    stopSong();
-
-}
-
-
-/* ---------------- NEXT ---------------- */
-
-function nextPhoto() {
-
-    if(
-        current <
-        photos.length - 1
-    ) {
-
-        current++;
-
-        updatePhotos();
-
-    }
-
-}
-
-
-/* ---------------- PREVIOUS ---------------- */
-
-function previousPhoto() {
-
-    if(current > 0) {
-
-        current--;
-
-        updatePhotos();
-
-    }
-
-}
-
-
-/* ---------------- SONG ---------------- */
-
-function playSong() {
-
-    stopSong();
-
-    currentSong =
-        songs[current];
-
-    currentSong
-        .play()
-        .then(() => {
-
-            document.getElementById(
-                "music"
-            ).textContent =
-                "🎶 Playing a song for this memory ❤️";
-
-        })
-        .catch(() => {
-
-            document.getElementById(
-                "music"
-            ).textContent =
-                "🎵 Tap the photo again to play the song";
-
-        });
-
-}
-
-
-function stopSong() {
-
-    if(currentSong) {
-
-        currentSong.pause();
-
-        currentSong.currentTime = 0;
-
-        currentSong = null;
-
-    }
-
-}
-
-
-/* ---------------- NAVIGATION ---------------- */
-
-function goBack() {
-
-    stopSong();
-
-    window.location.href =
-        "page2.html";
-
-}
-
-
-function goNext() {
-
-    stopSong();
-
-    window.location.href =
-        "page4.html";
+        20px auto 35px;
 
 }
 
 
 /* ---------------- HEARTS ---------------- */
 
-function createHeart() {
+.heart {
 
-    const heart =
-        document.createElement("div");
+    position: fixed;
 
-    heart.className =
-        "heart";
+    bottom: -40px;
 
-    const types = [
-        "❤️",
-        "💗",
-        "💕",
-        "💖",
-        "💓"
-    ];
+    z-index: 1;
 
-    heart.textContent =
-        types[
-            Math.floor(
-                Math.random() *
-                types.length
-            )
-        ];
+    pointer-events: none;
 
-    heart.style.left =
-        Math.random() * 100 + "vw";
-
-    heart.style.fontSize =
-        15 +
-        Math.random() * 18 +
-        "px";
-
-    heart.style.animationDuration =
-        5 +
-        Math.random() * 5 +
-        "s";
-
-    document.body.appendChild(
-        heart
-    );
-
-    setTimeout(
-        () => heart.remove(),
-        11000
-    );
+    animation:
+        heartFloat linear forwards;
 
 }
 
-setInterval(
-    createHeart,
-    900
-);
+@keyframes heartFloat {
 
+    from {
 
-/* ---------------- START ---------------- */
+        transform:
+            translateY(0)
+            rotate(0);
 
-updatePhotos();
+        opacity: 0;
 
-</script>
+    }
 
-</body>
+    15% {
+        opacity: .8;
+    }
 
-</html>
-<!DOCTYPE html>
-<html lang="en">
+    to {
 
-<head>
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
 
-<meta charset="UTF-8">
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+        opacity: 0;
 
-<title>Happy Birthday ❤️</title>
+    }
 
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-body {
+
+/* =========================================================
+   PAGE 4 — CAKE
+========================================================= */
+
+#page4 {
+
+    display: none;
 
     min-height: 100vh;
 
-    overflow: hidden;
+    align-items: center;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    justify-content: center;
+
+    text-align: center;
 
     background:
+
         radial-gradient(
             circle at 50% 20%,
             #fff,
@@ -2249,53 +1260,17 @@ body {
             #fff7fa
         );
 
+}
+
+
+#page4.active {
+
     display: flex;
 
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    color: #7d304f;
-
 }
 
 
-/* ---------------- BACK BUTTON ---------------- */
-
-.back {
-
-    position: fixed;
-
-    top: 18px;
-
-    left: 18px;
-
-    z-index: 100;
-
-    padding:
-        10px 18px;
-
-    border: none;
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,.9);
-
-    color: #a93661;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-}
-
-
-/* ---------------- MAIN ---------------- */
-
-.container {
+.cake-container {
 
     width: 90%;
 
@@ -2304,25 +1279,21 @@ body {
 }
 
 
-/* ---------------- TITLE ---------------- */
-
-.title {
+.cake-title {
 
     font-size:
         clamp(
-            30px,
-            8vw,
-            55px
+            28px,
+            7vw,
+            52px
         );
 
     color: #b52f60;
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 }
 
-
-/* ---------------- COUNTDOWN ---------------- */
 
 .countdown {
 
@@ -2338,9 +1309,7 @@ body {
     color: #c02f62;
 
     text-shadow:
-
         3px 3px white,
-
         0 8px 20px
         rgba(192,47,98,.25);
 
@@ -2351,7 +1320,7 @@ body {
 
 @keyframes countdownPop {
 
-    0% {
+    from {
 
         transform:
             scale(1.5);
@@ -2360,7 +1329,7 @@ body {
 
     }
 
-    100% {
+    to {
 
         transform:
             scale(1);
@@ -2384,12 +1353,10 @@ body {
     height: 230px;
 
     margin:
-        10px auto 0;
+        0 auto;
 
 }
 
-
-/* ---------------- CAKE BASE ---------------- */
 
 .cake-body {
 
@@ -2419,8 +1386,6 @@ body {
 }
 
 
-/* ---------------- CAKE TOP ---------------- */
-
 .cake-top {
 
     position: absolute;
@@ -2443,8 +1408,6 @@ body {
 }
 
 
-/* ---------------- CREAM ---------------- */
-
 .cream {
 
     position: absolute;
@@ -2465,8 +1428,6 @@ body {
 
 }
 
-
-/* ---------------- CANDLES ---------------- */
 
 .candle {
 
@@ -2494,26 +1455,11 @@ body {
 }
 
 
-/* candle positions */
+.candle1 { left: 28%; }
+.candle2 { left: 42%; }
+.candle3 { left: 56%; }
+.candle4 { left: 70%; }
 
-.candle1 {
-    left: 28%;
-}
-
-.candle2 {
-    left: 42%;
-}
-
-.candle3 {
-    left: 56%;
-}
-
-.candle4 {
-    left: 70%;
-}
-
-
-/* ---------------- FLAMES ---------------- */
 
 .flame {
 
@@ -2533,8 +1479,7 @@ body {
             #ff5a00 80%
         );
 
-    border-radius:
-        50% 50% 50% 50%;
+    border-radius: 50%;
 
     animation:
         flicker .35s infinite alternate;
@@ -2543,21 +1488,11 @@ body {
 
 }
 
-.flame1 {
-    left: 27.7%;
-}
 
-.flame2 {
-    left: 41.7%;
-}
-
-.flame3 {
-    left: 55.7%;
-}
-
-.flame4 {
-    left: 69.7%;
-}
+.flame1 { left: 27.7%; }
+.flame2 { left: 41.7%; }
+.flame3 { left: 55.7%; }
+.flame4 { left: 69.7%; }
 
 
 @keyframes flicker {
@@ -2581,11 +1516,7 @@ body {
 }
 
 
-/* ---------------- BLOW MESSAGE ---------------- */
-
 .blow {
-
-    margin-top: 20px;
 
     font-size:
         clamp(
@@ -2607,7 +1538,8 @@ body {
 
     50% {
 
-        transform: scale(1.05);
+        transform:
+            scale(1.05);
 
     }
 
@@ -2631,7 +1563,7 @@ body {
     align-items: center;
 
     background:
-        rgba(255,255,255,.94);
+        rgba(255,255,255,.96);
 
 }
 
@@ -2650,12 +1582,12 @@ body {
 
     font-family:
         Impact,
-        Arial Black,
+        "Arial Black",
         sans-serif;
 
     font-size:
         clamp(
-            50px,
+            45px,
             13vw,
             130px
         );
@@ -2676,7 +1608,8 @@ body {
     background-size:
         300% 300%;
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:
+        text;
 
     -webkit-text-fill-color:
         transparent;
@@ -2684,9 +1617,6 @@ body {
     animation:
         rainbow 1s infinite,
         birthdayZoom .7s ease;
-
-    text-shadow:
-        0 0 25px rgba(255,100,150,.25);
 
 }
 
@@ -2750,19 +1680,19 @@ body {
 
 .final-message {
 
-    display: none;
-
     position: fixed;
 
     inset: 0;
 
     z-index: 400;
 
-    padding: 30px;
+    display: none;
 
     justify-content: center;
 
     align-items: center;
+
+    padding: 30px;
 
     background:
         linear-gradient(
@@ -2818,8 +1748,6 @@ body {
 
     line-height: 1.8;
 
-    color: #704052;
-
 }
 
 
@@ -2873,6 +1801,66 @@ body {
 
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px) {
+
+    .main-card {
+
+        padding:
+            35px 20px;
+
+    }
+
+    .flower-area {
+
+        transform:
+            scale(.84);
+
+        margin-top: 0;
+
+        margin-bottom: -25px;
+
+    }
+
+    .photo-stack {
+
+        width: 88vw;
+
+        height: 57vh;
+
+    }
+
+    .photo {
+
+        padding:
+            9px 9px 58px;
+
+    }
+
+    .arrow {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 25px;
+
+    }
+
+    .left-arrow {
+        left: 1%;
+    }
+
+    .right-arrow {
+        right: 1%;
+    }
+
+}
+
 </style>
 
 </head>
@@ -2881,76 +1869,326 @@ body {
 <body>
 
 
-<button
-    class="back"
-    onclick="window.location.href='page3.html'"
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section
+    id="page1"
+    class="page active"
 >
 
-    ← Previous Page
-
-</button>
-
-
-<div class="container">
-
-
-    <h1 class="title">
-
-        The Birthday Can't Be
-        Celebrated Without Cake 🎂
-
-    </h1>
-
 
     <div
-        class="countdown"
-        id="countdown"
+        class="main-card"
     >
-        10
+
+
+        <h1 class="main-title">
+
+            Happyyyyyyyyy walaaaaaaa
+            birthdayyyyyyyyyy
+            jaaanuuuuuuuuuu
+            (chuhiyaaaa) ❤️
+
+        </h1>
+
+
+        <p class="intro">
+
+            Your 18th birthday deserves to be special,
+            so I created a website specifically for you babe,
+            myself. ❤️
+
+        </p>
+
+
+        <h2 class="section-title">
+
+            🌷 Today Is About YOU
+
+        </h2>
+
+
+        <p class="message">
+
+            Aaj ka din mere liye sirf ek normal date nahi hai.
+
+            <br><br>
+
+            Aaj woh din hai jis din
+            <strong>
+                meri favourite person duniya mein aayi thi.
+            </strong>
+            🥹❤️
+
+            <br><br>
+
+            Aur honestly, kabhi kabhi mujhe lagta hai ki tumhe
+            pata bhi nahi hai ki tumne meri life ko kitna
+            beautiful bana diya hai.
+
+            <br><br>
+
+            Tumhari life ka ek aur saal complete hua hai...
+
+            <br><br>
+
+            but for me, it's another reason to be grateful that
+            <strong>
+                you exist, that I found you, and that somehow
+                our paths crossed.
+            </strong>
+            🫶🏻
+
+            <br><br>
+
+            So today, before anything else...
+
+            <br><br>
+
+            <strong>
+                Happy Birthday to the person who means more to me
+                than words can properly explain. 🎂❤️
+            </strong>
+
+        </p>
+
+
+        <div class="special">
+
+            <p>
+
+                AB to adult ho gye ho pure 18 saal ke ho gyeeee 😂
+
+                <br>
+
+                Mujhee adopt karloooo LOL XD ❤️
+
+            </p>
+
+        </div>
+
+
+        <div class="special">
+
+            <p>
+
+                You are so special to me...
+
+                <br><br>
+
+                Do you know what?
+
+                <br><br>
+
+                When someone asks me,
+
+                <br>
+
+                "What's so special about her?"
+
+                <br><br>
+
+                <strong>
+                    "There is nothing special without you."
+                </strong>
+
+                🦋💗
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="next-button"
+            onclick="showPage(2)"
+        >
+
+            Click For More Surprise ✨
+
+        </button>
+
+
     </div>
 
 
-    <div class="cake">
+</section>
 
 
-        <div class="cake-top"></div>
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
 
-        <div class="cream"></div>
-
-        <div class="cake-body"></div>
-
-
-        <!-- CANDLES -->
-
-        <div class="candle candle1"></div>
-
-        <div class="candle candle2"></div>
-
-        <div class="candle candle3"></div>
-
-        <div class="candle candle4"></div>
+<section
+    id="page2"
+    class="page"
+>
 
 
-        <!-- FLAMES -->
+    <button
+        class="back-button"
+        onclick="showPage(1)"
+    >
 
-        <div class="flame flame1"></div>
+        ← Previous Page
 
-        <div class="flame flame2"></div>
+    </button>
 
-        <div class="flame flame3"></div>
 
-        <div class="flame flame4"></div>
+    <div class="page-title">
+
+        <h1>
+            A Flower Full Of Little Things 🌸
+        </h1>
+
+        <p>
+            Pluck one petal at a time...
+        </p>
+
+    </div>
+
+
+    <!-- BUTTERFLIES -->
+
+    <div
+        class="creature"
+        style="
+            font-size:30px;
+            top:20%;
+        "
+    >
+        🦋
+    </div>
+
+
+    <div
+        class="creature"
+        style="
+            font-size:24px;
+            animation-delay:4s;
+        "
+    >
+        🦋
+    </div>
+
+
+    <!-- BEES -->
+
+    <div
+        class="creature"
+        style="
+            font-size:25px;
+            animation-duration:10s;
+            animation-delay:2s;
+        "
+    >
+        🐝
+    </div>
+
+
+    <div
+        class="creature"
+        style="
+            font-size:22px;
+            animation-duration:15s;
+            animation-delay:6s;
+        "
+    >
+        🐝
+    </div>
+
+
+    <!-- FLOWER -->
+
+    <div class="flower-area">
+
+
+        <div
+            class="petal petal1"
+            onclick="openPetal(0)"
+        ></div>
+
+
+        <div
+            class="petal petal2"
+            onclick="openPetal(1)"
+        ></div>
+
+
+        <div
+            class="petal petal3"
+            onclick="openPetal(2)"
+        ></div>
+
+
+        <div
+            class="petal petal4"
+            onclick="openPetal(3)"
+        ></div>
+
+
+        <div
+            class="petal petal5"
+            onclick="openPetal(4)"
+        ></div>
+
+
+        <div class="flower-center">
+
+            Click A
+            Petal 🌸
+
+        </div>
 
 
     </div>
 
 
-    <div
-        class="blow"
-        id="blow"
+    <button
+        class="next-button page2-next"
+        onclick="showPage(3)"
     >
 
-        Get ready... 🎂
+        Off to the next page 💌 →
+
+    </button>
+
+
+</section>
+
+
+<!-- =====================================================
+     PETAL MESSAGE POPUP
+===================================================== -->
+
+<div
+    class="message-box"
+    id="petalBox"
+>
+
+
+    <div class="message-content">
+
+
+        <button
+            class="close"
+            onclick="closePetal()"
+        >
+            ×
+        </button>
+
+
+        <h2
+            id="petalTitle"
+        ></h2>
+
+
+        <p
+            id="petalText"
+        ></p>
+
 
     </div>
 
@@ -2958,12 +2196,309 @@ body {
 </div>
 
 
-<!-- BIRTHDAY FLASH -->
+<!-- =====================================================
+     PAGE 3 — PHOTOS
+===================================================== -->
+
+<section
+    id="page3"
+    class="page"
+>
+
+
+    <button
+        class="back-button"
+        onclick="showPage(2)"
+    >
+
+        ← Previous Page
+
+    </button>
+
+
+    <div class="album-header">
+
+        <h1>
+            Our Little Memories 📸❤️
+        </h1>
+
+        <p>
+            Some moments I wish I could pause forever...
+        </p>
+
+    </div>
+
+
+    <div class="album-area">
+
+
+        <button
+            class="arrow left-arrow"
+            onclick="previousPhoto()"
+        >
+            ←
+        </button>
+
+
+        <div class="photo-stack">
+
+
+            <div
+                class="photo active"
+                onclick="playCurrentSong()"
+            >
+
+                <img
+                    src="photos/photo1.jpg"
+                    alt="Memory 1"
+                >
+
+                <div class="caption">
+                    Our First Memory ❤️
+                </div>
+
+            </div>
+
+
+            <div
+                class="photo"
+                onclick="playCurrentSong()"
+            >
+
+                <img
+                    src="photos/photo2.jpg"
+                    alt="Memory 2"
+                >
+
+                <div class="caption">
+                    One Of My Favourite Moments ✨
+                </div>
+
+            </div>
+
+
+            <div
+                class="photo"
+                onclick="playCurrentSong()"
+            >
+
+                <img
+                    src="photos/photo3.jpg"
+                    alt="Memory 3"
+                >
+
+                <div class="caption">
+                    Just Us 🫶🏻
+                </div>
+
+            </div>
+
+
+            <div
+                class="photo"
+                onclick="playCurrentSong()"
+            >
+
+                <img
+                    src="photos/photo4.jpg"
+                    alt="Memory 4"
+                >
+
+                <div class="caption">
+                    A Moment Worth Remembering 🌷
+                </div>
+
+            </div>
+
+
+            <div
+                class="photo"
+                onclick="playCurrentSong()"
+            >
+
+                <img
+                    src="photos/photo5.jpg"
+                    alt="Memory 5"
+                >
+
+                <div class="caption">
+                    You + Me ❤️
+                </div>
+
+            </div>
+
+
+            <div
+                class="photo"
+                onclick="playCurrentSong()"
+            >
+
+                <img
+                    src="photos/photo6.jpg"
+                    alt="Memory 6"
+                >
+
+                <div class="caption">
+                    And Many More To Come... 🌙
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="arrow right-arrow"
+            onclick="nextPhoto()"
+        >
+            →
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="counter"
+        id="photoCounter"
+    >
+        1 / 6
+    </div>
+
+
+    <div
+        class="music-status"
+        id="musicStatus"
+    >
+        🎵 Tap the photo to play its song
+    </div>
+
+
+    <button
+        class="next-button album-next"
+        onclick="showPage(4)"
+    >
+
+        Off to the next page 🎂 →
+
+    </button>
+
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 4 — CAKE
+===================================================== -->
+
+<section
+    id="page4"
+    class="page"
+>
+
+
+    <button
+        class="back-button"
+        onclick="showPage(3)"
+    >
+
+        ← Previous Page
+
+    </button>
+
+
+    <div class="cake-container">
+
+
+        <h1 class="cake-title">
+
+            The Birthday Can't Be
+            Celebrated Without Cake 🎂
+
+        </h1>
+
+
+        <div
+            class="countdown"
+            id="countdown"
+        >
+            10
+        </div>
+
+
+        <div class="cake">
+
+
+            <div class="cake-top"></div>
+
+            <div class="cream"></div>
+
+            <div class="cake-body"></div>
+
+
+            <div
+                class="candle candle1"
+            ></div>
+
+            <div
+                class="candle candle2"
+            ></div>
+
+            <div
+                class="candle candle3"
+            ></div>
+
+            <div
+                class="candle candle4"
+            ></div>
+
+
+            <div
+                class="flame flame1"
+            ></div>
+
+            <div
+                class="flame flame2"
+            ></div>
+
+            <div
+                class="flame flame3"
+            ></div>
+
+            <div
+                class="flame flame4"
+            ></div>
+
+
+        </div>
+
+
+        <div
+            class="blow"
+            id="blowMessage"
+        >
+
+            Get ready... 🎂
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     BIRTHDAY FLASH
+===================================================== -->
 
 <div
     class="birthday-flash"
     id="birthdayFlash"
 >
+
 
     <div class="birthday-text">
 
@@ -2971,17 +2506,22 @@ body {
 
     </div>
 
+
 </div>
 
 
-<!-- FINAL MESSAGE -->
+<!-- =====================================================
+     FINAL MESSAGE
+===================================================== -->
 
 <div
     class="final-message"
     id="finalMessage"
 >
 
+
     <div class="final-content">
+
 
         <h1>
 
@@ -3012,97 +2552,665 @@ body {
 
         </p>
 
+
     </div>
+
 
 </div>
 
 
-<!-- BIRTHDAY AUDIO -->
+<!-- =====================================================
+     AUDIO
+===================================================== -->
 
 <audio
     id="birthdaySong"
     src="music/birthday.mp3"
->
-</audio>
+></audio>
 
 
 <script>
 
-/* =====================================================
-   COUNTDOWN
-===================================================== */
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
 
-let number = 10;
+function showPage(number) {
 
-const countdown =
-    document.getElementById(
-        "countdown"
-    );
+    document
+        .querySelectorAll(".page")
+        .forEach(
+            page => {
 
-const blow =
-    document.getElementById(
-        "blow"
-    );
+                page.classList.remove(
+                    "active"
+                );
 
-
-const timer =
-    setInterval(
-        () => {
-
-            number--;
-
-            if(number > 0) {
-
-                countdown.textContent =
-                    number;
-
-                countdown.style.animation =
+                page.style.display =
                     "none";
-
-                void countdown.offsetWidth;
-
-                countdown.style.animation =
-                    "countdownPop .9s ease";
 
             }
+        );
 
-            else {
 
-                clearInterval(timer);
+    const page =
+        document.getElementById(
+            "page" + number
+        );
 
-                countdown.textContent =
-                    "0";
 
-                countdown.style.display =
-                    "none";
+    page.classList.add("active");
 
-                blow.textContent =
-                    "🕯️ BLOW OUT THE CANDLES! 🕯️";
+    page.style.display =
+        number === 4
+        ? "flex"
+        : number === 1
+        ? "flex"
+        : "block";
 
-                blow.style.fontSize =
-                    "clamp(24px,6vw,38px)";
 
-                setTimeout(
-                    showBirthday,
-                    1300
+    window.scrollTo(
+        0,
+        0
+    );
+
+
+    if(number !== 3) {
+
+        stopSong();
+
+    }
+
+
+    if(number === 4) {
+
+        startCountdown();
+
+    }
+
+}
+
+
+/* =========================================================
+   PAGE 1 FLOATING ANIMATIONS
+========================================================= */
+
+const floatingObjects = [
+
+    "🦋",
+    "🦋",
+    "🌸",
+    "🌷",
+    "💗",
+    "❤️",
+    "✨",
+    "💖",
+    "🌸"
+
+];
+
+
+function createFloating() {
+
+    const element =
+        document.createElement(
+            "div"
+        );
+
+
+    element.className =
+        "floating";
+
+
+    element.textContent =
+        floatingObjects[
+            Math.floor(
+                Math.random() *
+                floatingObjects.length
+            )
+        ];
+
+
+    element.style.left =
+        Math.random() * 100 +
+        "vw";
+
+
+    element.style.fontSize =
+        18 +
+        Math.random() * 22 +
+        "px";
+
+
+    element.style.animationDuration =
+        8 +
+        Math.random() * 8 +
+        "s";
+
+
+    document.body.appendChild(
+        element
+    );
+
+
+    setTimeout(
+        () => element.remove(),
+        18000
+    );
+
+}
+
+
+setInterval(
+    createFloating,
+    650
+);
+
+
+/* =========================================================
+   PETAL MESSAGES
+========================================================= */
+
+const petalMessages = [
+
+{
+
+title:
+"You Deserve the World 🌎",
+
+text:
+`You are special, not because it's your birthday, it's because you are youu.
+
+And if I could really make each day memorable for you, I definitely would.
+
+I feel like I am getting the gift here — to have such a wonderful person to love.
+
+I got to know you, I got to laugh with you, I got to spend my time with you. ❤️`
+
+},
+
+{
+
+title:
+"All Those Little Moments ✨",
+
+text:
+`Our relationship is not defined by only big days like farewell, or that bunk.
+
+It's all the small moments that make it special.
+
+Laughing at little things in the ground or making shy eye contacts, just peeking in the class to get a glimpse of you. Watching you in secret. Sharing lunch and many more which can't be counted.
+
+I wanna cherish these throughout my life and always want to share these moments with our kids in the future. ❤️`
+
+},
+
+{
+
+title:
+"Even From Far Away 🌙",
+
+text:
+`You don't know how much I am wishing right now to just be by your side, watching you blushing and giggling, shedding a tear or two, or anything that you are feeling.
+
+I really want to lie next to you and watch you fall asleep all night long.
+
+However, the distance between us doesn't change the fact of how much you are important for me. ❤️`
+
+},
+
+{
+
+title:
+"For The Girl You're Becoming 🌸",
+
+text:
+`I hope from the bottom of my heart that you succeed in whatever your goals are, grow up and become a nice human.
+
+Now you have turned 18, successfully stepped into adulthood and the most important phase of your life where you have to work hard to achieve what you desire.
+
+Fulfill the dreams you and I saw together.
+
+There are so many beautiful chapters waiting for you in the future and I hope that I get to spend all of them with you. ❤️`
+
+},
+
+{
+
+title:
+"Happy Birthday, My Love ❤️",
+
+text:
+`So here's my final wish for you today:
+
+May you always have something to look forward to, someone to laugh with, somewhere that feels like home, and countless reasons to be proud of the person you're becoming.
+
+And whenever life gets difficult, I hope you remember that somewhere in this world, there's someone who is incredibly grateful that you exist. ❤️`
+
+}
+
+];
+
+
+function openPetal(index) {
+
+    document.getElementById(
+        "petalTitle"
+    ).textContent =
+        petalMessages[index].title;
+
+
+    document.getElementById(
+        "petalText"
+    ).textContent =
+        petalMessages[index].text;
+
+
+    document.getElementById(
+        "petalBox"
+    ).classList.add("show");
+
+}
+
+
+function closePetal() {
+
+    document.getElementById(
+        "petalBox"
+    ).classList.remove("show");
+
+}
+
+
+/* =========================================================
+   PHOTO ALBUM
+========================================================= */
+
+const photos =
+    document.querySelectorAll(
+        ".photo"
+    );
+
+
+let currentPhoto = 0;
+
+
+const songs = [
+
+    new Audio("music/song1.mp3"),
+
+    new Audio("music/song2.mp3"),
+
+    new Audio("music/song3.mp3"),
+
+    new Audio("music/song4.mp3"),
+
+    new Audio("music/song5.mp3"),
+
+    new Audio("music/song6.mp3")
+
+];
+
+
+let currentSong = null;
+
+
+function updatePhotos() {
+
+    photos.forEach(
+        (photo,index) => {
+
+            photo.className =
+                "photo";
+
+
+            if(index === currentPhoto) {
+
+                photo.classList.add(
+                    "active"
                 );
 
             }
 
-        },
-        1000
+
+            else if(
+                index ===
+                currentPhoto - 1
+            ) {
+
+                photo.classList.add(
+                    "left"
+                );
+
+            }
+
+
+            else if(
+                index ===
+                currentPhoto + 1
+            ) {
+
+                photo.classList.add(
+                    "right"
+                );
+
+            }
+
+        }
     );
 
 
-/* =====================================================
+    document.getElementById(
+        "photoCounter"
+    ).textContent =
+        `${currentPhoto + 1} / ${photos.length}`;
+
+
+    stopSong();
+
+
+    document.getElementById(
+        "musicStatus"
+    ).textContent =
+        "🎵 Tap the photo to play its song";
+
+}
+
+
+function nextPhoto() {
+
+    if(
+        currentPhoto <
+        photos.length - 1
+    ) {
+
+        currentPhoto++;
+
+        updatePhotos();
+
+    }
+
+}
+
+
+function previousPhoto() {
+
+    if(
+        currentPhoto > 0
+    ) {
+
+        currentPhoto--;
+
+        updatePhotos();
+
+    }
+
+}
+
+
+function playCurrentSong() {
+
+    stopSong();
+
+
+    currentSong =
+        songs[currentPhoto];
+
+
+    currentSong
+        .play()
+        .then(
+            () => {
+
+                document.getElementById(
+                    "musicStatus"
+                ).textContent =
+                    "🎶 Playing a song for this memory ❤️";
+
+            }
+        )
+        .catch(
+            () => {
+
+                document.getElementById(
+                    "musicStatus"
+                ).textContent =
+                    "🎵 Tap the photo again to play the song";
+
+            }
+        );
+
+}
+
+
+function stopSong() {
+
+    songs.forEach(
+        song => {
+
+            song.pause();
+
+            song.currentTime = 0;
+
+        }
+    );
+
+
+    currentSong = null;
+
+}
+
+
+/* =========================================================
+   HEARTS ON PHOTO PAGE
+========================================================= */
+
+function createHeart() {
+
+    if(
+        !document
+            .getElementById("page3")
+            .classList
+            .contains("active")
+    ) {
+
+        return;
+
+    }
+
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+
+    heart.className =
+        "heart";
+
+
+    const types = [
+
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💓"
+
+    ];
+
+
+    heart.textContent =
+        types[
+            Math.floor(
+                Math.random() *
+                types.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 +
+        "vw";
+
+
+    heart.style.fontSize =
+        15 +
+        Math.random() * 18 +
+        "px";
+
+
+    heart.style.animationDuration =
+        5 +
+        Math.random() * 5 +
+        "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(
+        () => heart.remove(),
+        11000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    850
+);
+
+
+/* =========================================================
+   CAKE COUNTDOWN
+========================================================= */
+
+let countdownStarted = false;
+
+let countdownNumber = 10;
+
+let countdownTimer = null;
+
+
+function startCountdown() {
+
+    if(countdownStarted) {
+
+        return;
+
+    }
+
+
+    countdownStarted = true;
+
+    countdownNumber = 10;
+
+
+    const countdown =
+        document.getElementById(
+            "countdown"
+        );
+
+
+    const blow =
+        document.getElementById(
+            "blowMessage"
+        );
+
+
+    countdown.style.display =
+        "block";
+
+
+    countdown.textContent =
+        "10";
+
+
+    blow.textContent =
+        "Get ready... 🎂";
+
+
+    countdownTimer =
+        setInterval(
+            () => {
+
+                countdownNumber--;
+
+
+                if(
+                    countdownNumber > 0
+                ) {
+
+                    countdown.textContent =
+                        countdownNumber;
+
+
+                    countdown.style.animation =
+                        "none";
+
+
+                    void countdown.offsetWidth;
+
+
+                    countdown.style.animation =
+                        "countdownPop .9s ease";
+
+                }
+
+
+                else {
+
+                    clearInterval(
+                        countdownTimer
+                    );
+
+
+                    countdown.style.display =
+                        "none";
+
+
+                    blow.textContent =
+                        "🕯️ BLOW OUT THE CANDLES! 🕯️";
+
+
+                    blow.style.fontSize =
+                        "clamp(24px,6vw,38px)";
+
+
+                    setTimeout(
+                        showBirthday,
+                        1300
+                    );
+
+                }
+
+            },
+
+            1000
+        );
+
+}
+
+
+/* =========================================================
    BIRTHDAY CELEBRATION
-===================================================== */
+========================================================= */
 
 function showBirthday() {
 
-    document.getElementById(
-        "birthdayFlash"
-    ).classList.add("show");
+    const flash =
+        document.getElementById(
+            "birthdayFlash"
+        );
+
+
+    flash.classList.add(
+        "show"
+    );
 
 
     const song =
@@ -3111,7 +3219,13 @@ function showBirthday() {
         );
 
 
-    song.play().catch(() => {});
+    song.currentTime = 0;
+
+
+    song.play()
+        .catch(
+            () => {}
+        );
 
 
     createConfetti();
@@ -3120,11 +3234,10 @@ function showBirthday() {
     setTimeout(
         () => {
 
-            document.getElementById(
-                "birthdayFlash"
-            ).classList.remove(
+            flash.classList.remove(
                 "show"
             );
+
 
             document.getElementById(
                 "finalMessage"
@@ -3133,31 +3246,34 @@ function showBirthday() {
             );
 
         },
+
         7500
     );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CONFETTI
-===================================================== */
+========================================================= */
 
 function createConfetti() {
 
     const pieces = [
+
         "🎉",
         "🎊",
         "✨",
         "💗",
         "❤️",
         "🌸"
+
     ];
 
 
     for(
         let i = 0;
-        i < 70;
+        i < 80;
         i++
     ) {
 
@@ -3166,8 +3282,10 @@ function createConfetti() {
                 "div"
             );
 
+
         piece.className =
             "confetti";
+
 
         piece.textContent =
             pieces[
@@ -3184,14 +3302,14 @@ function createConfetti() {
 
 
         piece.style.fontSize =
-            (15 +
-            Math.random() * 25) +
+            15 +
+            Math.random() * 25 +
             "px";
 
 
         piece.style.animationDuration =
-            (3 +
-            Math.random() * 4) +
+            3 +
+            Math.random() * 4 +
             "s";
 
 
@@ -3213,6 +3331,13 @@ function createConfetti() {
     }
 
 }
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updatePhotos();
 
 </script>
 
