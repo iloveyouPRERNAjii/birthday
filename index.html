@@ -15,46 +15,61 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
             font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
             color: white;
-            text-align: center;
             overflow-x: hidden;
         }
 
-        .container {
+        .page {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px;
+            text-align: center;
+            padding: 25px;
         }
 
-        h1 {
-            font-size: 55px;
-            margin-bottom: 20px;
-            animation: fadeIn 2s ease;
+        .card {
+            width: 100%;
+            max-width: 750px;
+            padding: 50px 30px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            animation: appear 1.5s ease;
         }
 
         .heart {
             font-size: 70px;
             animation: heartbeat 1.5s infinite;
+            margin-bottom: 15px;
         }
 
-        p {
-            max-width: 700px;
-            font-size: 20px;
-            line-height: 1.7;
-            margin: 20px 0;
-            animation: fadeIn 3s ease;
+        h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: auto;
+            max-width: 620px;
         }
 
         button {
-            margin-top: 20px;
-            padding: 15px 30px;
+            margin-top: 30px;
+            padding: 15px 32px;
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             background: white;
             color: #ff4f70;
             font-size: 18px;
@@ -64,39 +79,47 @@
         }
 
         button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
         }
 
-        #message {
+        #surprise {
             display: none;
             margin-top: 30px;
-            font-size: 24px;
-            animation: fadeIn 2s ease;
+            font-size: 21px;
+            line-height: 1.8;
+            animation: appear 1s ease;
+        }
+
+        .signature {
+            margin-top: 25px;
+            font-size: 20px;
+            font-style: italic;
         }
 
         .floating-heart {
             position: fixed;
-            bottom: -20px;
-            font-size: 25px;
-            animation: floatUp 6s linear infinite;
-            opacity: 0.8;
+            bottom: -40px;
+            pointer-events: none;
+            animation: floatUp linear forwards;
         }
 
         @keyframes heartbeat {
             0%, 100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.2);
             }
         }
 
-        @keyframes fadeIn {
+        @keyframes appear {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -105,29 +128,44 @@
 
         @keyframes floatUp {
             from {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
                 opacity: 0;
             }
+
             20% {
                 opacity: 0.8;
             }
+
             to {
-                transform: translateY(-110vh);
+                transform: translateY(-110vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
         @media (max-width: 600px) {
+
+            .card {
+                padding: 40px 20px;
+            }
+
             h1 {
                 font-size: 38px;
             }
 
-            p {
-                font-size: 17px;
-            }
-
             .heart {
                 font-size: 55px;
+            }
+
+            .subtitle {
+                font-size: 19px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+
+            #surprise {
+                font-size: 18px;
             }
         }
     </style>
@@ -135,64 +173,114 @@
 
 <body>
 
-    <div class="container">
+    <div class="page">
 
-        <div class="heart">❤️</div>
+        <div class="card">
 
-        <h1>Happy Birthday, My Love! 🎂</h1>
+            <div class="heart">❤️</div>
 
-        <p>
-            Today is a very special day because the world got a little brighter
-            on the day you were born.
-            <br><br>
-            I may not be able to be beside you today,
-            but I hope this little website reminds you that
-            someone is thinking about you and wishing you the happiest birthday.
-        </p>
+            <h1>Happy Birthday! 🎂</h1>
 
-        <button onclick="showMessage()">
-            Click for a Surprise 💌
-        </button>
+            <div class="subtitle">
+                To someone incredibly special...
+            </div>
 
-        <div id="message">
-            You are one of the most beautiful parts of my life. ❤️
-            <br>
-            Happy Birthday! 🥹🎀
+            <div class="message">
+
+                Today isn't just another day.
+
+                <br><br>
+
+                It's the day someone very special came into this world.
+
+                <br><br>
+
+                And even though I can't be there beside you today,
+                I wanted to create something that could remind you
+                that you are loved, appreciated, and thought about.
+
+            </div>
+
+            <button onclick="showSurprise()">
+                Open Your Surprise 💌
+            </button>
+
+            <div id="surprise">
+
+                ✨ You deserve all the happiness in the world. ✨
+
+                <br><br>
+
+                I hope this birthday brings you
+                countless smiles, beautiful memories,
+                and everything your heart wishes for.
+
+                <br><br>
+
+                And remember...
+
+                <br>
+
+                distance can never make someone
+                less important. ❤️
+
+                <div class="signature">
+                    — With lots of love 💗
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
+
     <script>
 
-        function showMessage() {
-            document.getElementById("message").style.display = "block";
+        function showSurprise() {
+
+            const surprise = document.getElementById("surprise");
+
+            surprise.style.display = "block";
+
+            // Change button text
+            document.querySelector("button").innerHTML =
+                "❤️ I Hope You Like It ❤️";
+
         }
 
-        // Create floating hearts
+
+        // Floating hearts
+
         function createHeart() {
 
             const heart = document.createElement("div");
 
             heart.classList.add("floating-heart");
 
-            heart.innerHTML = "❤️";
+            const hearts = ["❤️", "💕", "💗", "💖", "💓"];
 
-            heart.style.left = Math.random() * 100 + "vw";
+            heart.innerHTML =
+                hearts[Math.floor(Math.random() * hearts.length)];
 
-            heart.style.animationDuration =
-                (4 + Math.random() * 4) + "s";
+            heart.style.left =
+                Math.random() * 100 + "vw";
 
             heart.style.fontSize =
                 (15 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
 
             document.body.appendChild(heart);
 
             setTimeout(() => {
                 heart.remove();
-            }, 8000);
+            }, 10000);
         }
 
-        setInterval(createHeart, 500);
+
+        setInterval(createHeart, 450);
 
     </script>
 
