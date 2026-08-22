@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +10,9 @@
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+/* =========================================================
+   BASIC RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -28,14 +27,13 @@ html {
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     overflow-x: hidden;
-    background: #fff4f8;
-    color: #542638;
+    color: #5b3044;
 }
 
 
-/* =====================================================
+/* =========================================================
    PAGE 1
-===================================================== */
+========================================================= */
 
 #page1 {
 
@@ -48,42 +46,34 @@ body {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
-    padding: 50px 20px;
+    padding: 40px 20px;
 
     background:
-
         radial-gradient(
             circle at 10% 15%,
-            rgba(255,190,215,0.8),
+            rgba(255,180,210,.8),
             transparent 25%
         ),
-
         radial-gradient(
             circle at 90% 80%,
-            rgba(255,210,225,0.8),
+            rgba(255,205,225,.8),
             transparent 30%
         ),
-
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255,255,255,0.95),
-            transparent 60%
-        ),
-
         linear-gradient(
             135deg,
             #fff5f9,
-            #ffe8f0,
-            #fff6fa
+            #ffe7f0,
+            #fff7fb
         );
 }
 
 
-/* =====================================================
-   MOVING BACKGROUND GLOW
-===================================================== */
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
 
 .background-glow {
 
@@ -95,16 +85,12 @@ body {
     border-radius: 50%;
 
     background:
-        rgba(255,105,160,0.12);
+        rgba(255,105,160,.12);
 
     filter: blur(80px);
 
     animation:
-        glowMove
-        8s
-        infinite
-        alternate
-        ease-in-out;
+        glowMove 8s infinite alternate ease-in-out;
 }
 
 @keyframes glowMove {
@@ -123,9 +109,9 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    FLOATING ELEMENTS
-===================================================== */
+========================================================= */
 
 .floating {
 
@@ -139,27 +125,24 @@ body {
 }
 
 
-/* =====================================================
-   FLOATING HEARTS
-===================================================== */
+/* HEARTS */
 
 .float-heart {
 
     font-size: 25px;
+
+    opacity: .7;
 
     animation:
         floatHeart
         var(--duration)
         infinite
         ease-in-out;
-
-    opacity: 0.7;
 }
 
 @keyframes floatHeart {
 
     0% {
-
         transform:
             translateY(30px)
             translateX(0)
@@ -169,23 +152,17 @@ body {
     }
 
     20% {
-        opacity: 0.8;
+        opacity: .8;
     }
 
     50% {
-
         transform:
             translateY(-100px)
             translateX(30px)
             rotate(15deg);
     }
 
-    80% {
-        opacity: 0.8;
-    }
-
     100% {
-
         transform:
             translateY(-220px)
             translateX(-20px)
@@ -196,142 +173,40 @@ body {
 }
 
 
-/* =====================================================
-   FLOATING BUTTERFLIES
-===================================================== */
+/* BUTTERFLIES */
 
 .float-butterfly {
 
     font-size: 30px;
+
+    opacity: .8;
 
     animation:
         butterflyMove
         var(--duration)
         infinite
         ease-in-out;
-
-    opacity: 0.8;
 }
 
 @keyframes butterflyMove {
 
-    0% {
-
+    0%,100% {
         transform:
             translate(0,0)
             rotate(-5deg);
     }
 
-    25% {
-
-        transform:
-            translate(50px,-50px)
-            rotate(12deg);
-    }
-
     50% {
-
         transform:
-            translate(-20px,-110px)
-            rotate(-10deg);
-    }
-
-    75% {
-
-        transform:
-            translate(40px,-160px)
+            translate(40px,-60px)
             rotate(10deg);
     }
-
-    100% {
-
-        transform:
-            translate(0,0)
-            rotate(-5deg);
-    }
 }
 
 
-/* =====================================================
-   FALLING PETALS
-===================================================== */
-
-.float-petal {
-
-    font-size: 20px;
-
-    animation:
-        petalFall
-        var(--duration)
-        infinite
-        linear;
-
-    opacity: 0.65;
-}
-
-@keyframes petalFall {
-
-    0% {
-
-        transform:
-            translateY(-100px)
-            rotate(0deg);
-    }
-
-    100% {
-
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-    }
-}
-
-
-/* =====================================================
-   SPARKLES
-===================================================== */
-
-.sparkle {
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    box-shadow:
-        0 0 10px white,
-        0 0 20px #ff9fc2;
-
-    animation:
-        sparklePulse
-        var(--duration)
-        infinite
-        ease-in-out;
-}
-
-@keyframes sparklePulse {
-
-    0%,100% {
-
-        transform: scale(0);
-
-        opacity: 0;
-    }
-
-    50% {
-
-        transform: scale(1.8);
-
-        opacity: 1;
-    }
-}
-
-
-/* =====================================================
-   MAIN CONTENT
-===================================================== */
+/* =========================================================
+   PAGE 1 CONTENT
+========================================================= */
 
 .main-content {
 
@@ -346,15 +221,12 @@ body {
     text-align: center;
 
     animation:
-        pageAppear
-        1.5s
-        ease;
+        pageAppear 1.4s ease;
 }
 
 @keyframes pageAppear {
 
     from {
-
         opacity: 0;
 
         transform:
@@ -362,7 +234,6 @@ body {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -371,13 +242,9 @@ body {
 }
 
 
-/* =====================================================
-   INTRO
-===================================================== */
-
 .intro {
 
-    font-size: 0.9rem;
+    font-size: .9rem;
 
     letter-spacing: 4px;
 
@@ -385,21 +252,9 @@ body {
 
     color: #b84c73;
 
-    margin-bottom: 18px;
-
-    opacity: 0;
-
-    animation:
-        fadeUp
-        1s
-        0.3s
-        forwards;
+    margin-bottom: 20px;
 }
 
-
-/* =====================================================
-   MAIN TITLE
-===================================================== */
 
 .main-title {
 
@@ -407,14 +262,12 @@ body {
 
     font-size:
         clamp(
-            2.6rem,
+            2.5rem,
             7vw,
             5.5rem
         );
 
     line-height: 1.05;
-
-    font-weight: 700;
 
     background:
         linear-gradient(
@@ -428,21 +281,9 @@ body {
 
     -webkit-text-fill-color: transparent;
 
-    margin-bottom: 15px;
-
-    opacity: 0;
-
-    animation:
-        fadeUp
-        1.2s
-        0.5s
-        forwards;
+    margin-bottom: 18px;
 }
 
-
-/* =====================================================
-   SUBTITLE
-===================================================== */
 
 .subtitle {
 
@@ -452,32 +293,22 @@ body {
 
     font-size:
         clamp(
-            1.1rem,
+            1.05rem,
             3vw,
-            1.5rem
+            1.45rem
         );
 
     color: #7d4057;
 
     margin-bottom: 35px;
-
-    opacity: 0;
-
-    animation:
-        fadeUp
-        1.2s
-        0.8s
-        forwards;
 }
 
 
-/* =====================================================
+/* =========================================================
    MESSAGE CARD
-===================================================== */
+========================================================= */
 
 .message-card {
-
-    position: relative;
 
     padding:
         40px
@@ -486,85 +317,21 @@ body {
     border-radius: 35px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.55
-        );
+        rgba(255,255,255,.58);
 
     backdrop-filter:
         blur(20px);
 
-    -webkit-backdrop-filter:
-        blur(20px);
-
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.8
-        );
+        rgba(255,255,255,.8);
 
     box-shadow:
-
         0 25px 70px
-        rgba(
-            180,
-            50,
-            100,
-            0.12
-        ),
+        rgba(180,50,100,.12);
 
-        inset 0 1px 0
-        rgba(
-            255,
-            255,
-            255,
-            0.9
-        );
-
-    opacity: 0;
-
-    animation:
-        fadeUp
-        1.3s
-        1.1s
-        forwards;
+    margin-bottom: 35px;
 }
-
-.message-card::before {
-
-    content: "♡";
-
-    position: absolute;
-
-    top: -18px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    font-size: 30px;
-
-    color: #e3487b;
-
-    background:
-        #fff3f7;
-
-    padding:
-        0 12px;
-
-    border-radius: 50%;
-}
-
-
-/* =====================================================
-   MESSAGE TEXT
-===================================================== */
 
 .message-card p {
 
@@ -572,14 +339,12 @@ body {
         clamp(
             1rem,
             2vw,
-            1.15rem
+            1.12rem
         );
 
     line-height: 1.9;
 
     margin-bottom: 18px;
-
-    color: #5d3345;
 }
 
 .highlight {
@@ -590,19 +355,17 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    SPECIAL LINE
-===================================================== */
+========================================================= */
 
 .special-section {
 
     position: relative;
 
-    margin:
-        45px 0 40px;
+    margin: 35px 0;
 
-    padding:
-        35px 20px;
+    padding: 35px 20px;
 }
 
 .special-line {
@@ -621,19 +384,6 @@ body {
     color: #a91d52;
 
     line-height: 1.3;
-
-    text-shadow:
-        0 5px 20px
-        rgba(
-            169,
-            29,
-            82,
-            0.15
-        );
-
-    position: relative;
-
-    z-index: 3;
 
     animation:
         specialGlow
@@ -654,15 +404,11 @@ body {
 }
 
 
-/* =====================================================
-   BUTTERFLIES AROUND SPECIAL LINE
-===================================================== */
-
 .special-butterfly {
 
     position: absolute;
 
-    font-size: 30px;
+    font-size: 28px;
 
     animation:
         specialButterfly
@@ -672,63 +418,46 @@ body {
 }
 
 .special-butterfly:nth-child(1) {
-
-    left: 4%;
+    left: 5%;
     top: 10%;
 }
 
 .special-butterfly:nth-child(2) {
-
-    right: 4%;
+    right: 5%;
     top: 5%;
-
-    animation-delay:
-        1.2s;
 }
 
 .special-butterfly:nth-child(3) {
-
-    left: 13%;
+    left: 15%;
     bottom: 0;
-
-    animation-delay:
-        2.3s;
 }
 
 .special-butterfly:nth-child(4) {
-
-    right: 13%;
+    right: 15%;
     bottom: 5%;
-
-    animation-delay:
-        3.2s;
 }
 
 @keyframes specialButterfly {
 
     0%,100% {
-
         transform:
             translate(0,0)
             rotate(-5deg);
     }
 
     50% {
-
         transform:
-            translate(25px,-35px)
+            translate(25px,-30px)
             rotate(10deg);
     }
 }
 
 
-/* =====================================================
-   SURPRISE BUTTON
-===================================================== */
+/* =========================================================
+   BUTTON
+========================================================= */
 
 .surprise-button {
-
-    position: relative;
 
     border: none;
 
@@ -750,146 +479,53 @@ body {
 
     font-weight: 700;
 
-    letter-spacing:
-        0.5px;
-
     cursor: pointer;
 
     box-shadow:
         0 12px 35px
-        rgba(
-            199,
-            44,
-            99,
-            0.35
-        );
+        rgba(199,44,99,.35);
 
     transition:
-        transform 0.3s,
-        box-shadow 0.3s;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    animation:
-        fadeUp
-        1.2s
-        1.5s
-        forwards;
-}
-
-.surprise-button::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: -100%;
-
-    width: 60%;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.5),
-            transparent
-        );
-
-    transform:
-        skewX(-20deg);
-
-    animation:
-        buttonShine
-        3s
-        infinite;
-}
-
-@keyframes buttonShine {
-
-    0% {
-        left: -100%;
-    }
-
-    50%,100% {
-        left: 140%;
-    }
+        .3s;
 }
 
 .surprise-button:hover {
 
     transform:
-        translateY(-6px)
+        translateY(-5px)
         scale(1.04);
 
     box-shadow:
         0 18px 45px
-        rgba(
-            199,
-            44,
-            99,
-            0.45
-        );
+        rgba(199,44,99,.45);
 }
 
 
-/* =====================================================
-   FADE UP
-===================================================== */
-
-@keyframes fadeUp {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* =====================================================
+/* =========================================================
    PAGE 2
-===================================================== */
+========================================================= */
 
 #page2 {
 
-    min-height: 100vh;
-
     display: none;
+
+    min-height: 100vh;
 
     position: relative;
 
     overflow: hidden;
 
     background:
-
         radial-gradient(
             circle at 10% 20%,
             #ffe0eb,
             transparent 30%
         ),
-
         radial-gradient(
             circle at 90% 70%,
             #ffd8e6,
             transparent 30%
         ),
-
         linear-gradient(
             135deg,
             #fff4f7,
@@ -897,13 +533,13 @@ body {
         );
 
     padding:
-        80px 20px 120px;
+        70px 20px 120px;
 }
+
 
 .page2-content {
 
-    max-width:
-        1100px;
+    max-width: 1100px;
 
     margin: auto;
 
@@ -912,11 +548,10 @@ body {
     z-index: 5;
 }
 
+
 .page2-title {
 
     text-align: center;
-
-    color: #c92a5d;
 
     font-family: Georgia, serif;
 
@@ -927,13 +562,15 @@ body {
             3.5rem
         );
 
+    color: #c92a5d;
+
     margin-bottom: 40px;
 }
 
 
-/* =====================================================
+/* =========================================================
    BALLOONS
-===================================================== */
+========================================================= */
 
 .balloon {
 
@@ -954,7 +591,6 @@ body {
 @keyframes balloonRise {
 
     from {
-
         transform:
             translateY(0)
             rotate(0deg);
@@ -963,7 +599,6 @@ body {
     }
 
     to {
-
         transform:
             translateY(-120vh)
             rotate(20deg);
@@ -973,17 +608,15 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    FALLING HEARTS
-===================================================== */
+========================================================= */
 
 .falling-heart {
 
     position: fixed;
 
     top: -50px;
-
-    font-size: 25px;
 
     z-index: 2;
 
@@ -996,7 +629,6 @@ body {
 @keyframes heartFall {
 
     from {
-
         transform:
             translateY(0)
             rotate(0deg);
@@ -1005,7 +637,6 @@ body {
     }
 
     to {
-
         transform:
             translateY(110vh)
             rotate(360deg);
@@ -1015,26 +646,24 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    FLOWER SECTION
-===================================================== */
+========================================================= */
 
 .flower-section {
 
-    min-height: 100vh;
-
-    padding:
-        40px 10px 120px;
+    min-height: 850px;
 
     text-align: center;
 
-    position: relative;
+    padding:
+        30px 10px 100px;
 }
+
 
 .flower-heading {
 
-    font-family:
-        Georgia, serif;
+    font-family: Georgia, serif;
 
     color: #b51f55;
 
@@ -1048,50 +677,240 @@ body {
     margin-bottom: 12px;
 }
 
+
 .flower-instruction {
 
     color: #815064;
 
     font-size: 1.05rem;
 
-    font-style: italic;
-
     line-height: 1.8;
 
-    margin-bottom: 55px;
+    margin-bottom: 40px;
+
+    font-style: italic;
 }
 
 
-/* =====================================================
-   FLOWER WRAPPER
-===================================================== */
+/* =========================================================
+   BEAUTIFUL FLOWER
+========================================================= */
 
-.flower-wrapper {
+.flower {
 
     width: 360px;
 
-    height: 390px;
+    height: 450px;
 
-    max-width: 90vw;
+    max-width: 95vw;
 
     margin:
-        0 auto 40px;
+        0 auto;
 
     position: relative;
+
+    animation:
+        flowerSway
+        5s
+        infinite
+        ease-in-out;
+}
+
+@keyframes flowerSway {
+
+    0%,100% {
+        transform:
+            rotate(-1deg);
+    }
+
+    50% {
+        transform:
+            rotate(1deg);
+    }
 }
 
 
-/* =====================================================
+/* =========================================================
+   PETAL BASE
+========================================================= */
+
+.petal {
+
+    position: absolute;
+
+    width: 105px;
+
+    height: 155px;
+
+    left: 50%;
+
+    top: 50px;
+
+    transform-origin:
+        50% 100%;
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius:
+        60% 60% 50% 50% /
+        70% 70% 35% 35%;
+
+    transition:
+        .35s ease;
+
+    box-shadow:
+        inset 0 8px 15px
+        rgba(255,255,255,.35),
+
+        0 10px 25px
+        rgba(170,50,90,.15);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   PETAL POSITIONS
+========================================================= */
+
+.petal-1 {
+
+    transform:
+        translateX(-50%)
+        rotate(0deg)
+        translateY(-25px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffbfd5,
+            #ee719d
+        );
+}
+
+
+.petal-2 {
+
+    transform:
+        translateX(-50%)
+        rotate(72deg)
+        translateY(-25px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffcadd,
+            #f17ca5
+        );
+}
+
+
+.petal-3 {
+
+    transform:
+        translateX(-50%)
+        rotate(144deg)
+        translateY(-25px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb9d3,
+            #e96898
+        );
+}
+
+
+.petal-4 {
+
+    transform:
+        translateX(-50%)
+        rotate(216deg)
+        translateY(-25px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffc6da,
+            #ef719d
+        );
+}
+
+
+.petal-5 {
+
+    transform:
+        translateX(-50%)
+        rotate(288deg)
+        translateY(-25px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffcade,
+            #eb709b
+        );
+}
+
+
+/* =========================================================
+   PETAL HOVER
+========================================================= */
+
+.petal:hover {
+
+    filter:
+        brightness(1.1);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,90,150,.35);
+}
+
+
+/* =========================================================
+   PETAL NUMBERS
+========================================================= */
+
+.petal::after {
+
+    content: attr(data-number);
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    font-family: Georgia, serif;
+
+    font-size: 1.2rem;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-weight: bold;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
    FLOWER CENTER
-===================================================== */
+========================================================= */
 
 .flower-center {
 
     position: absolute;
 
-    width: 85px;
+    width: 105px;
 
-    height: 85px;
+    height: 105px;
 
     left: 50%;
 
@@ -1105,21 +924,122 @@ body {
     background:
         radial-gradient(
             circle,
-            #ffd966 0%,
-            #f6bd35 65%,
-            #e4a51d 100%
+            #ffe57a 0%,
+            #f6c23e 60%,
+            #dc9c1c 100%
         );
+
+    border:
+        7px solid
+        rgba(255,220,100,.55);
 
     box-shadow:
-        0 8px 25px
-        rgba(
-            180,
-            100,
-            20,
-            0.25
+        0 8px 30px
+        rgba(170,100,20,.25);
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 2.2rem;
+}
+
+
+/* =========================================================
+   STEM
+========================================================= */
+
+.flower-stem {
+
+    position: absolute;
+
+    width: 14px;
+
+    height: 200px;
+
+    left: 50%;
+
+    top: 195px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #4b9b5a,
+            #76bd72,
+            #3f874c
         );
 
-    z-index: 15;
+    border-radius: 20px;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   LEAVES
+========================================================= */
+
+.leaf {
+
+    position: absolute;
+
+    width: 95px;
+
+    height: 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7fc77d,
+            #3f9550
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    z-index: 1;
+}
+
+
+.leaf-left {
+
+    left: 76px;
+
+    top: 285px;
+
+    transform:
+        rotate(25deg);
+}
+
+
+.leaf-right {
+
+    right: 76px;
+
+    top: 335px;
+
+    transform:
+        scaleX(-1)
+        rotate(25deg);
+}
+
+
+/* =========================================================
+   PETAL MESSAGE OVERLAY
+========================================================= */
+
+.petal-overlay {
+
+    position: fixed;
+
+    inset: 0;
 
     display: flex;
 
@@ -1127,296 +1047,268 @@ body {
 
     align-items: center;
 
-    font-size: 1.8rem;
+    padding: 25px;
+
+    background:
+        rgba(70,20,40,.35);
+
+    backdrop-filter:
+        blur(12px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+    z-index: 1000;
 }
 
 
-/* =====================================================
-   PETALS
-===================================================== */
+.petal-overlay.active {
 
-.petal {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================================
+   MESSAGE CARD
+========================================================= */
+
+.petal-card {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    position: relative;
+
+    padding:
+        50px
+        40px
+        40px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffafd,
+            #fff0f6
+        );
+
+    box-shadow:
+        0 30px 100px
+        rgba(70,20,40,.3);
+
+    transform:
+        scale(.55)
+        translateY(100px);
+
+    opacity: 0;
+
+    transition:
+        transform .55s cubic-bezier(.17,.89,.32,1.25),
+        opacity .4s ease;
+}
+
+
+.petal-overlay.active
+.petal-card {
+
+    transform:
+        scale(1)
+        translateY(0);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-petal {
 
     position: absolute;
 
-    width: 82px;
+    top: 15px;
 
-    height: 125px;
+    right: 18px;
 
-    left: 50%;
+    width: 38px;
 
-    top: 85px;
-
-    transform-origin:
-        50% 100%;
+    height: 38px;
 
     border: none;
 
+    border-radius: 50%;
+
+    background:
+        rgba(190,40,90,.08);
+
+    color:
+        #b51f55;
+
+    font-size: 1.2rem;
+
     cursor: pointer;
 
-    border-radius:
-        55% 55% 50% 50% /
-        65% 65% 35% 35%;
-
-    box-shadow:
-        0 8px 20px
-        rgba(
-            180,
-            60,
-            100,
-            0.15
-        );
-
     transition:
-        filter 0.3s ease;
-
-    z-index: 10;
+        .25s;
 }
 
 
-/* =====================================================
-   PETAL COLOURS
-===================================================== */
-
-.petal-1 {
+.close-petal:hover {
 
     background:
-        linear-gradient(
-            145deg,
-            #ffb7cf,
-            #f477a5
-        );
+        rgba(190,40,90,.18);
 
     transform:
-        translateX(-50%)
-        rotate(0deg)
-        translateY(-65px);
-}
-
-.petal-2 {
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffc5da,
-            #f58aae
-        );
-
-    transform:
-        translateX(-50%)
-        rotate(72deg)
-        translateY(-65px);
-}
-
-.petal-3 {
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffcada,
-            #ef709e
-        );
-
-    transform:
-        translateX(-50%)
-        rotate(144deg)
-        translateY(-65px);
-}
-
-.petal-4 {
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffb9d2,
-            #e96898
-        );
-
-    transform:
-        translateX(-50%)
-        rotate(216deg)
-        translateY(-65px);
-}
-
-.petal-5 {
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffcfe0,
-            #ef7ca5
-        );
-
-    transform:
-        translateX(-50%)
-        rotate(288deg)
-        translateY(-65px);
-}
-
-.petal:hover {
-
-    filter:
-        brightness(1.08)
-        drop-shadow(
-            0 5px 10px
-            rgba(200,50,100,0.25)
-        );
+        rotate(90deg)
+        scale(1.08);
 }
 
 
-/* =====================================================
-   PLUCK ANIMATION
-===================================================== */
+/* =========================================================
+   CARD PETAL ICON
+========================================================= */
 
-.petal.plucked {
+.card-petal-icon {
 
-    animation:
-        pluckPetal
-        1.3s
-        forwards
-        ease-in;
+    font-size:
+        2.5rem;
 
-    pointer-events: none;
-
-    z-index: 30;
-}
-
-@keyframes pluckPetal {
-
-    0% {
-
-        opacity: 1;
-
-        transform:
-            translateX(-50%)
-            rotate(0deg)
-            translateY(-65px)
-            scale(1);
-    }
-
-    30% {
-
-        transform:
-            translateX(-50%)
-            rotate(12deg)
-            translateY(-100px)
-            scale(1.08);
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translate(
-                calc(-50% + 120px),
-                450px
-            )
-            rotate(180deg)
-            scale(0.65);
-    }
+    margin-bottom:
+        12px;
 }
 
 
-/* =====================================================
-   PETAL MESSAGES
-===================================================== */
+/* =========================================================
+   CARD TITLE
+========================================================= */
 
-.petal-message-container {
-
-    max-width:
-        850px;
-
-    margin:
-        20px auto;
-}
-
-.petal-message {
-
-    display: none;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.78
-        );
-
-    backdrop-filter:
-        blur(15px);
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.8
-        );
-
-    border-radius:
-        28px;
-
-    padding:
-        30px;
-
-    box-shadow:
-        0 15px 45px
-        rgba(
-            180,
-            60,
-            100,
-            0.12
-        );
-
-    text-align: left;
-
-    animation:
-        messageAppear
-        0.8s
-        ease;
-}
-
-.petal-message.active {
-
-    display: block;
-}
-
-.petal-message h3 {
-
-    color: #bd285c;
+.petal-card h2 {
 
     font-family:
         Georgia, serif;
 
-    font-size: 1.5rem;
+    color:
+        #b51f55;
 
-    margin-bottom: 15px;
+    font-size:
+        clamp(
+            1.7rem,
+            5vw,
+            2.5rem
+        );
+
+    margin-bottom:
+        22px;
 }
 
-.petal-message p {
 
-    color: #603747;
+/* =========================================================
+   CARD TEXT
+========================================================= */
 
-    line-height: 1.85;
+.petal-card p {
 
-    font-size: 1rem;
+    color:
+        #603747;
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.9;
+
+    text-align:
+        left;
 }
 
-@keyframes messageAppear {
+
+/* =========================================================
+   PETAL STATUS
+========================================================= */
+
+.petals-status {
+
+    margin-top:
+        20px;
+
+    color:
+        #9a526b;
+
+    font-size:
+        .95rem;
+}
+
+
+/* =========================================================
+   FINAL REVEAL
+========================================================= */
+
+.final-reveal {
+
+    display: none;
+
+    max-width:
+        750px;
+
+    margin:
+        40px auto;
+
+    padding:
+        45px 30px;
+
+    text-align:
+        center;
+
+    border-radius:
+        35px;
+
+    background:
+        rgba(255,255,255,.75);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(180,50,100,.15);
+
+    animation:
+        finalAppear
+        1s ease;
+}
+
+
+.final-reveal.show {
+
+    display: block;
+}
+
+
+@keyframes finalAppear {
 
     from {
-
         opacity: 0;
 
         transform:
-            translateY(25px)
-            scale(0.97);
+            translateY(40px)
+            scale(.95);
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -1426,99 +1318,23 @@ body {
 }
 
 
-/* =====================================================
-   COUNTER
-===================================================== */
-
-.petal-counter {
-
-    color: #a83c60;
-
-    font-size: 0.95rem;
-
-    margin-top: 25px;
-
-    opacity: 0.8;
-}
-
-
-/* =====================================================
-   FINAL PETAL REVEAL
-===================================================== */
-
-.final-petal-reveal {
-
-    display: none;
-
-    max-width:
-        800px;
-
-    margin:
-        50px auto 0;
-
-    padding:
-        45px 30px;
-
-    border-radius:
-        35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.9),
-            rgba(255,230,239,0.9)
-        );
-
-    box-shadow:
-        0 20px 60px
-        rgba(
-            180,
-            50,
-            100,
-            0.15
-        );
-
-    animation:
-        finalReveal
-        1.2s
-        ease;
-}
-
-.final-petal-reveal.active {
-
-    display: block;
-}
-
-.final-icon {
-
-    font-size:
-        3.5rem;
-
-    margin-bottom:
-        20px;
-}
-
-.final-petal-reveal h2 {
+.final-reveal h2 {
 
     font-family:
         Georgia, serif;
 
-    color: #a91d52;
+    color:
+        #a91d52;
 
     font-size:
-        clamp(
-            1.8rem,
-            5vw,
-            2.8rem
-        );
+        2.5rem;
 
     margin-bottom:
         20px;
 }
 
-.final-petal-reveal p {
 
-    color: #603747;
+.final-reveal p {
 
     line-height:
         1.9;
@@ -1527,64 +1343,41 @@ body {
         1.05rem;
 }
 
-@keyframes finalReveal {
 
-    from {
+/* =========================================================
+   SPARKLES
+========================================================= */
 
-        opacity: 0;
-
-        transform:
-            translateY(40px)
-            scale(0.95);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =====================================================
-   FLOWER SPARKLES
-===================================================== */
-
-.flower-sparkle {
+.sparkle-pop {
 
     position: fixed;
 
     pointer-events: none;
 
-    font-size:
-        20px;
+    z-index: 2000;
+
+    font-size: 22px;
 
     animation:
-        sparkleFly
-        1.2s
-        ease-out
-        forwards;
-
-    z-index: 100;
+        sparklePop
+        1s
+        forwards
+        ease-out;
 }
 
-@keyframes sparkleFly {
 
-    0% {
+@keyframes sparklePop {
 
-        opacity: 1;
+    from {
 
         transform:
             translate(0,0)
-            scale(0.5);
+            scale(.4);
+
+        opacity: 1;
     }
 
-    100% {
-
-        opacity: 0;
+    to {
 
         transform:
             translate(
@@ -1592,30 +1385,33 @@ body {
                 var(--y)
             )
             scale(1.5);
+
+        opacity: 0;
     }
 }
 
 
-/* =====================================================
-   PHOTOS
-===================================================== */
+/* =========================================================
+   PHOTO SECTION
+========================================================= */
 
 .photo-section {
 
     margin-top:
-        80px;
+        70px;
 
     text-align:
         center;
 }
 
-.photo-section h2 {
 
-    color:
-        #c92a5d;
+.photo-section h2 {
 
     font-family:
         Georgia, serif;
+
+    color:
+        #c92a5d;
 
     font-size:
         2.3rem;
@@ -1624,32 +1420,20 @@ body {
         30px;
 }
 
-.photos {
 
-    display:
-        grid;
+.photo-placeholder-container {
 
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:
-        20px;
-}
-
-.photo-placeholder {
+    max-width:
+        500px;
 
     height:
-        220px;
+        300px;
+
+    margin:
+        auto;
 
     border-radius:
-        20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd9e6,
-            #fff
-        );
+        30px;
 
     display:
         flex;
@@ -1660,152 +1444,68 @@ body {
     align-items:
         center;
 
-    text-align:
-        center;
+    background:
+        linear-gradient(
+            135deg,
+            #ffd9e6,
+            #fff
+        );
 
     color:
         #b51f55;
-
-    font-weight:
-        bold;
 
     box-shadow:
-        0 10px 30px
-        rgba(
-            180,
-            60,
-            100,
-            0.12
-        );
+        0 15px 40px
+        rgba(180,60,100,.12);
 }
 
 
-/* =====================================================
-   FINAL NOTE
-===================================================== */
-
-.final-note {
-
-    text-align:
-        center;
-
-    margin-top:
-        80px;
-
-    font-size:
-        1.2rem;
-
-    color:
-        #b51f55;
-
-    line-height:
-        1.8;
-}
-
-
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width:700px) {
 
     #page1 {
 
         padding:
-            35px 15px;
+            30px 15px;
     }
 
     .message-card {
 
         padding:
-            35px 20px;
+            30px 20px;
     }
 
-    .message-card p {
+    .flower {
 
-        font-size:
-            1rem;
-
-        line-height:
-            1.8;
-    }
-
-    .special-section {
+        transform:
+            scale(.85);
 
         margin-top:
-            35px;
-    }
-
-    .special-butterfly {
-
-        font-size:
-            22px;
-    }
-
-    .flower-wrapper {
-
-        width:
-            300px;
-
-        height:
-            350px;
-    }
-
-    .flower-center {
-
-        width:
-            70px;
-
-        height:
-            70px;
-
-        top:
-            100px;
-    }
-
-    .petal {
-
-        width:
-            68px;
-
-        height:
-            105px;
-
-        top:
-            82px;
-    }
-
-    .flower-instruction {
+            -20px;
 
         margin-bottom:
-            35px;
+            -30px;
     }
 
-    .petal-message {
+    .petal-card {
 
         padding:
-            25px 20px;
+            50px 25px 30px;
     }
 
-    .petal-message p {
+    .petal-card p {
 
         font-size:
-            0.95rem;
+            .98rem;
     }
 
-    .photos {
+    .flower-section {
 
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .photo-placeholder {
-
-        height:
-            170px;
-
-        font-size:
-            0.85rem;
+        min-height:
+            780px;
     }
 
 }
@@ -1818,12 +1518,11 @@ body {
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PAGE 1
-===================================================== -->
+========================================================= -->
 
 <section id="page1">
-
 
     <div class="background-glow"></div>
 
@@ -1831,106 +1530,43 @@ body {
     <!-- FLOATING HEARTS -->
 
     <div class="floating float-heart"
-         style="left:5%; bottom:15%; --duration:7s;">
+         style="left:5%;bottom:15%;--duration:7s;">
         ❤️
     </div>
 
     <div class="floating float-heart"
-         style="left:18%; bottom:30%; --duration:9s;">
+         style="left:18%;bottom:30%;--duration:9s;">
         💗
     </div>
 
     <div class="floating float-heart"
-         style="right:10%; bottom:20%; --duration:8s;">
+         style="right:10%;bottom:20%;--duration:8s;">
         💕
     </div>
 
     <div class="floating float-heart"
-         style="right:23%; bottom:40%; --duration:10s;">
+         style="right:23%;bottom:40%;--duration:10s;">
         💖
-    </div>
-
-    <div class="floating float-heart"
-         style="left:30%; bottom:10%; --duration:8s;">
-        💓
-    </div>
-
-    <div class="floating float-heart"
-         style="right:35%; bottom:15%; --duration:11s;">
-        💞
     </div>
 
 
     <!-- BUTTERFLIES -->
 
     <div class="floating float-butterfly"
-         style="left:7%; top:18%; --duration:8s;">
+         style="left:7%;top:18%;--duration:8s;">
         🦋
     </div>
 
     <div class="floating float-butterfly"
-         style="right:7%; top:25%; --duration:10s;">
+         style="right:7%;top:25%;--duration:10s;">
         🦋
     </div>
 
     <div class="floating float-butterfly"
-         style="left:25%; top:10%; --duration:9s;">
+         style="left:25%;top:10%;--duration:9s;">
         🦋
     </div>
 
-    <div class="floating float-butterfly"
-         style="right:27%; bottom:12%; --duration:11s;">
-        🦋
-    </div>
-
-
-    <!-- FALLING FLOWERS -->
-
-    <div class="floating float-petal"
-         style="left:12%; top:-20px; --duration:12s;">
-        🌸
-    </div>
-
-    <div class="floating float-petal"
-         style="left:40%; top:-50px; --duration:15s;">
-        🌷
-    </div>
-
-    <div class="floating float-petal"
-         style="left:70%; top:-20px; --duration:13s;">
-        🌸
-    </div>
-
-    <div class="floating float-petal"
-         style="left:88%; top:-70px; --duration:16s;">
-        🌷
-    </div>
-
-
-    <!-- SPARKLES -->
-
-    <div class="floating sparkle"
-         style="left:12%; top:35%; --duration:3s;">
-    </div>
-
-    <div class="floating sparkle"
-         style="left:22%; top:70%; --duration:4s;">
-    </div>
-
-    <div class="floating sparkle"
-         style="left:78%; top:30%; --duration:3.5s;">
-    </div>
-
-    <div class="floating sparkle"
-         style="right:12%; top:65%; --duration:4.5s;">
-    </div>
-
-    <div class="floating sparkle"
-         style="left:50%; top:15%; --duration:3.2s;">
-    </div>
-
-
-    <!-- MAIN CONTENT -->
 
     <div class="main-content">
 
@@ -1946,7 +1582,6 @@ body {
 
             Happyyyy walaaaaa
             <br>
-
             Birthdayyyyy Jaanuuuu ❤️
 
         </h1>
@@ -1956,14 +1591,11 @@ body {
 
             my favourite person, my chuhiya,
             <br>
-
             and the reason this little world
             feels warmer 🫶🏻
 
         </div>
 
-
-        <!-- BIRTHDAY MESSAGE -->
 
         <div class="message-card">
 
@@ -2002,7 +1634,6 @@ body {
                 <span class="highlight">
                     meri favourite person duniya mein aayi thi.
                 </span>
-
                 🥹❤️
 
             </p>
@@ -2031,15 +1662,7 @@ body {
 
                 that I found you,
                 and that somehow our paths crossed.
-
                 🫶🏻
-
-            </p>
-
-
-            <p>
-
-                So today, before anything else...
 
             </p>
 
@@ -2054,10 +1677,6 @@ body {
 
 
             <p>
-
-                Aur haan...
-
-                <br>
 
                 AB TO ADULT HO GYEEEE 😭
 
@@ -2076,8 +1695,6 @@ body {
 
         </div>
 
-
-        <!-- SPECIAL MESSAGE -->
 
         <div class="special-section">
 
@@ -2103,15 +1720,13 @@ body {
 
                 There is nothing
                 <br>
-
                 special without you. ❤️
 
             </div>
 
+
         </div>
 
-
-        <!-- OPEN PAGE 2 -->
 
         <button
             class="surprise-button"
@@ -2130,9 +1745,9 @@ body {
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      PAGE 2
-===================================================== -->
+========================================================= -->
 
 <section id="page2">
 
@@ -2167,25 +1782,36 @@ body {
 
                 <br>
 
-                There's a little something
-                waiting behind each one.
+                Click a petal and discover
+                the little message hidden inside.
 
             </p>
 
 
             <!-- FLOWER -->
 
-            <div
-                class="flower-wrapper"
-                id="flower">
+            <div class="flower">
+
+
+                <!-- STEM -->
+
+                <div class="flower-stem"></div>
+
+
+                <!-- LEAVES -->
+
+                <div class="leaf leaf-left"></div>
+
+                <div class="leaf leaf-right"></div>
 
 
                 <!-- PETAL 1 -->
 
                 <button
                     class="petal petal-1"
+                    data-number="1"
                     data-message="1"
-                    aria-label="Pluck petal 1">
+                    aria-label="Open petal 1">
                 </button>
 
 
@@ -2193,8 +1819,9 @@ body {
 
                 <button
                     class="petal petal-2"
+                    data-number="2"
                     data-message="2"
-                    aria-label="Pluck petal 2">
+                    aria-label="Open petal 2">
                 </button>
 
 
@@ -2202,8 +1829,9 @@ body {
 
                 <button
                     class="petal petal-3"
+                    data-number="3"
                     data-message="3"
-                    aria-label="Pluck petal 3">
+                    aria-label="Open petal 3">
                 </button>
 
 
@@ -2211,8 +1839,9 @@ body {
 
                 <button
                     class="petal petal-4"
+                    data-number="4"
                     data-message="4"
-                    aria-label="Pluck petal 4">
+                    aria-label="Open petal 4">
                 </button>
 
 
@@ -2220,8 +1849,9 @@ body {
 
                 <button
                     class="petal petal-5"
+                    data-number="5"
                     data-message="5"
-                    aria-label="Pluck petal 5">
+                    aria-label="Open petal 5">
                 </button>
 
 
@@ -2237,262 +1867,129 @@ body {
             </div>
 
 
-            <!-- COUNTER -->
+            <div class="petals-status">
 
-            <div class="petal-counter">
-
-                <span id="petalsLeft">
-                    5
+                <span id="petalsFound">
+                    0
                 </span>
-
-                petals remaining 🌸
-
-            </div>
-
-
-            <!-- =================================================
-                 PETAL MESSAGES
-            ================================================== -->
-
-            <div class="petal-message-container">
-
-
-                <!-- MESSAGE 1 -->
-
-                <div
-                    class="petal-message"
-                    id="message1">
-
-                    <h3>
-
-                        You Deserve the World 🌎
-
-                    </h3>
-
-                    <p>
-
-                        You are special, not because it's your birthday,
-                        it's because you are youu, and if I could really
-                        make each day memorable for you I definitely would.
-
-                        <br><br>
-
-                        I feel like I am getting the gift here —
-                        to have such a wonderful person to love,
-                        I got to know you, I got to laugh with you,
-                        I got to spend my time with you.
-
-                    </p>
-
-                </div>
-
-
-                <!-- MESSAGE 2 -->
-
-                <div
-                    class="petal-message"
-                    id="message2">
-
-                    <h3>
-
-                        All Those Little Moments ✨
-
-                    </h3>
-
-                    <p>
-
-                        Our relationship is not defined by only big days
-                        like farewell, or that bunk.
-
-                        <br><br>
-
-                        It's all the small moments that makes it special —
-                        laughing at little things in the ground,
-                        or making shy eye contacts,
-                        just peeking in the class to get a glimpse of you,
-                        watching you in secret,
-                        sharing lunch and many more which can't be counted.
-
-                        <br><br>
-
-                        I wanna cherish these throughout my life
-                        and always want to share these moments
-                        with our kids in the future.
-
-                    </p>
-
-                </div>
-
-
-                <!-- MESSAGE 3 -->
-
-                <div
-                    class="petal-message"
-                    id="message3">
-
-                    <h3>
-
-                        Even From Far Away 🌙
-
-                    </h3>
-
-                    <p>
-
-                        You don't know how much I am wishing right now
-                        to just be by your side,
-
-                        watching you blushing and giggling,
-                        shedding a tear or two,
-                        or anything that you are feeling.
-
-                        <br><br>
-
-                        I really want to lie next to you
-                        and watch you fall asleep all night long.
-
-                        <br><br>
-
-                        However, the distance between us doesn't change
-                        the fact of how much you are important for me.
-
-                    </p>
-
-                </div>
-
-
-                <!-- MESSAGE 4 -->
-
-                <div
-                    class="petal-message"
-                    id="message4">
-
-                    <h3>
-
-                        For The Girl You're Becoming 🌸
-
-                    </h3>
-
-                    <p>
-
-                        I hope from the bottom of my heart that you succeed
-                        in whatever your goals are, grow up and become a nice human.
-
-                        <br><br>
-
-                        Now you have turned 18, successfully stepped into
-                        adulthood and the most important phase of your life
-                        where you have to work hard so to achieve what you desire.
-
-                        <br><br>
-
-                        Fulfill the dreams you and I saw together.
-
-                        There are so many beautiful chapters waiting for you
-                        in the future and I hope that I get to spend all of them
-                        with you.
-
-                    </p>
-
-                </div>
-
-
-                <!-- MESSAGE 5 -->
-
-                <div
-                    class="petal-message"
-                    id="message5">
-
-                    <h3>
-
-                        Happy Birthday, My Love ❤️
-
-                    </h3>
-
-                    <p>
-
-                        So here's my final wish for you today:
-
-                        <br><br>
-
-                        May you always have something to look forward to,
-                        someone to laugh with, somewhere that feels like home,
-                        and countless reasons to be proud of the person
-                        you're becoming.
-
-                        <br><br>
-
-                        And whenever life gets difficult,
-                        I hope you remember that somewhere in this world,
-                        there's someone who is incredibly grateful
-                        that you exist.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 FINAL PETAL REVEAL
-            ================================================== -->
-
-            <div
-                class="final-petal-reveal"
-                id="finalReveal">
-
-
-                <div class="final-icon">
-
-                    🌷✨
-
-                </div>
-
-
-                <h2>
-
-                    Wait... that's not all. ❤️
-
-                </h2>
-
-
-                <p>
-
-                    You plucked every petal...
-
-                    <br><br>
-
-                    but I told you there was one more surprise.
-
-                    <br><br>
-
-                    <strong>
-
-                        And this time,
-                        it's not hiding on a flower.
-
-                    </strong>
-
-                </p>
-
-
-                <br>
-
-
-                <button
-                    class="surprise-button"
-                    onclick="continueSurprise()">
-
-                    ✨ ONE LAST THING ✨
-
-                </button>
-
+                of 5 little messages discovered 🌸
 
             </div>
 
 
         </section>
+
+
+
+        <!-- =================================================
+             PETAL MESSAGE OVERLAY
+        ================================================== -->
+
+        <div
+            class="petal-overlay"
+            id="petalOverlay">
+
+
+            <div class="petal-card">
+
+
+                <button
+                    class="close-petal"
+                    onclick="closePetal()">
+
+                    ✕
+
+                </button>
+
+
+                <div
+                    class="card-petal-icon">
+
+                    🌸
+
+                </div>
+
+
+                <h2 id="petalTitle">
+
+                    Message
+
+                </h2>
+
+
+                <p id="petalText">
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FINAL REVEAL
+        ================================================== -->
+
+        <div
+            class="final-reveal"
+            id="finalReveal">
+
+
+            <div style="font-size:3.5rem;margin-bottom:15px;">
+
+                🌷✨
+
+            </div>
+
+
+            <h2>
+
+                You Found Them All ❤️
+
+            </h2>
+
+
+            <p>
+
+                You opened every little message...
+
+                <br><br>
+
+                But of course,
+                I couldn't possibly stop here.
+
+                <br><br>
+
+                There are still more memories,
+                more things I want to tell you,
+                and a few more surprises waiting for you.
+
+                <br><br>
+
+                <strong>
+                    So keep going... ❤️
+                </strong>
+
+            </p>
+
+
+            <br>
+
+
+            <button
+                class="surprise-button"
+                onclick="continueSurprise()">
+
+                ✨ ONE LAST THING ✨
+
+            </button>
+
+
+        </div>
+
 
 
         <!-- =================================================
@@ -2509,62 +2006,18 @@ body {
             </h2>
 
 
-            <div class="photos">
+            <div
+                class="photo-placeholder-container">
 
+                📷
 
-                <div class="photo-placeholder">
+                <br>
 
-                    📷
-                    <br>
-                    Your Photo 1
-
-                </div>
-
-
-                <div class="photo-placeholder">
-
-                    📷
-                    <br>
-                    Your Photo 2
-
-                </div>
-
-
-                <div class="photo-placeholder">
-
-                    📷
-                    <br>
-                    Your Photo 3
-
-                </div>
-
-
-                <div class="photo-placeholder">
-
-                    📷
-                    <br>
-                    Your Photo 4
-
-                </div>
-
+                Our interactive photo album
+                is coming next ❤️
 
             </div>
 
-
-        </div>
-
-
-        <!-- FINAL NOTE -->
-
-        <div class="final-note">
-
-            More surprises are coming... ❤️
-
-            <br><br>
-
-            This website isn't finished yet —
-            because there are still so many things
-            I want to tell you.
 
         </div>
 
@@ -2577,37 +2030,32 @@ body {
 
 <script>
 
-/* =====================================================
-   OPEN PAGE 2
-===================================================== */
+/* =========================================================
+   PAGE 2
+========================================================= */
 
 function openSurprise() {
 
-    document
-        .getElementById("page1")
-        .style.display = "none";
+    document.getElementById("page1").style.display =
+        "none";
 
-    document
-        .getElementById("page2")
-        .style.display = "block";
-
+    document.getElementById("page2").style.display =
+        "block";
 
     window.scrollTo({
         top: 0,
         behavior: "instant"
     });
 
-
     startBalloons();
 
     startHearts();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BALLOONS
-===================================================== */
+========================================================= */
 
 function startBalloons() {
 
@@ -2628,44 +2076,50 @@ function startBalloons() {
     balloons.forEach(
         (balloon,index) => {
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                const element =
-                    document.createElement(
-                        "div"
+                    const element =
+                        document.createElement(
+                            "div"
+                        );
+
+                    element.className =
+                        "balloon";
+
+                    element.innerHTML =
+                        balloon;
+
+                    element.style.left =
+                        Math.random() *
+                        100 +
+                        "vw";
+
+                    element.style.animationDuration =
+                        (
+                            5 +
+                            Math.random() * 5
+                        ) +
+                        "s";
+
+
+                    document.body.appendChild(
+                        element
                     );
 
-                element.className =
-                    "balloon";
 
-                element.innerHTML =
-                    balloon;
+                    setTimeout(
+                        () => {
 
-                element.style.left =
-                    Math.random() *
-                    100 +
-                    "vw";
+                            element.remove();
 
-                element.style.animationDuration =
-                    (
-                        5 +
-                        Math.random() * 5
-                    ) +
-                    "s";
+                        },
+                        10000
+                    );
 
-
-                document.body.appendChild(
-                    element
-                );
-
-
-                setTimeout(() => {
-
-                    element.remove();
-
-                },10000);
-
-            }, index * 250);
+                },
+                index * 250
+            );
 
         }
     );
@@ -2673,212 +2127,400 @@ function startBalloons() {
 }
 
 
-/* =====================================================
+/* =========================================================
    FALLING HEARTS
-===================================================== */
+========================================================= */
 
 function startHearts() {
 
-    setInterval(() => {
+    setInterval(
+        () => {
 
-        const heart =
-            document.createElement(
-                "div"
-            );
+            const heart =
+                document.createElement(
+                    "div"
+                );
 
-        heart.className =
-            "falling-heart";
-
-
-        const hearts = [
-
-            "❤️",
-            "💗",
-            "💖",
-            "💕",
-            "💓",
-            "💞"
-
-        ];
+            heart.className =
+                "falling-heart";
 
 
-        heart.innerHTML =
-            hearts[
-                Math.floor(
-                    Math.random() *
-                    hearts.length
-                )
+            const hearts = [
+                "❤️",
+                "💗",
+                "💖",
+                "💕",
+                "💓",
+                "💞"
             ];
 
 
-        heart.style.left =
-            Math.random() *
-            100 +
-            "vw";
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random() *
+                        hearts.length
+                    )
+                ];
 
 
-        heart.style.fontSize =
-            (
-                15 +
-                Math.random() * 25
-            ) +
-            "px";
+            heart.style.left =
+                Math.random() *
+                100 +
+                "vw";
 
 
-        heart.style.animationDuration =
-            (
-                4 +
-                Math.random() * 5
-            ) +
-            "s";
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() * 25
+                ) +
+                "px";
 
 
-        document.body.appendChild(
-            heart
-        );
+            heart.style.animationDuration =
+                (
+                    4 +
+                    Math.random() * 5
+                ) +
+                "s";
 
 
-        setTimeout(() => {
+            document.body.appendChild(
+                heart
+            );
 
-            heart.remove();
 
-        },10000);
+            setTimeout(
+                () => {
 
-    },300);
+                    heart.remove();
+
+                },
+                10000
+            );
+
+        },
+        350
+    );
 
 }
 
 
-/* =====================================================
-   PETAL SYSTEM
-===================================================== */
+/* =========================================================
+   PETAL DATA
+========================================================= */
 
-let petalsPlucked = 0;
+const petalMessages = {
 
+    1: {
 
-const petals =
-    document.querySelectorAll(
-        ".petal"
-    );
+        title:
+            "You Deserve the World 🌎",
 
+        text:
+            `You are special, not because it's your birthday,
+            it's because you are youu, and if I could really
+            make each day memorable for you I definitely would.
 
-const petalsLeft =
-    document.getElementById(
-        "petalsLeft"
-    );
+            <br><br>
 
+            I feel like I am getting the gift here —
+            to have such a wonderful person to love,
+            I got to know you, I got to laugh with you,
+            I got to spend my time with you.`
 
-petals.forEach(
-    (petal) => {
-
-        petal.addEventListener(
-            "click",
-            function() {
-
-
-                /* Prevent double click */
-
-                if (
-                    this.classList
-                    .contains("plucked")
-                ) {
-
-                    return;
-
-                }
+    },
 
 
-                /* Get message */
+    2: {
 
-                const messageNumber =
-                    this.dataset.message;
+        title:
+            "All Those Little Moments ✨",
+
+        text:
+            `Our relationship is not defined by only big days
+            like farewell, or that bunk.
+
+            <br><br>
+
+            It's all the small moments that makes it special —
+            laughing at little things in the ground,
+            or making shy eye contacts,
+            just peeking in the class to get a glimpse of you,
+            watching you in secret,
+            sharing lunch and many more which can't be counted.
+
+            <br><br>
+
+            I wanna cherish these throughout my life
+            and always want to share these moments
+            with our kids in the future.`
+
+    },
 
 
-                /* Pluck */
+    3: {
 
-                this.classList.add(
-                    "plucked"
-                );
+        title:
+            "Even From Far Away 🌙",
+
+        text:
+            `You don't know how much I am wishing right now
+            to just be by your side,
+
+            watching you blushing and giggling,
+            shedding a tear or two,
+            or anything that you are feeling.
+
+            <br><br>
+
+            I really want to lie next to you
+            and watch you fall asleep all night long.
+
+            <br><br>
+
+            However, the distance between us doesn't change
+            the fact of how much you are important for me.`
+
+    },
 
 
-                /* Reveal message */
+    4: {
 
-                const message =
+        title:
+            "For The Girl You're Becoming 🌸",
+
+        text:
+            `I hope from the bottom of my heart that you succeed
+            in whatever your goals are, grow up and become a nice human.
+
+            <br><br>
+
+            Now you have turned 18, successfully stepped into
+            adulthood and the most important phase of your life
+            where you have to work hard so to achieve what you desire.
+
+            <br><br>
+
+            Fulfill the dreams you and I saw together.
+
+            There are so many beautiful chapters waiting for you
+            in the future and I hope that I get to spend all of them
+            with you.`
+
+    },
+
+
+    5: {
+
+        title:
+            "Happy Birthday, My Love ❤️",
+
+        text:
+            `So here's my final wish for you today:
+
+            <br><br>
+
+            May you always have something to look forward to,
+            someone to laugh with, somewhere that feels like home,
+            and countless reasons to be proud of the person
+            you're becoming.
+
+            <br><br>
+
+            And whenever life gets difficult,
+            I hope you remember that somewhere in this world,
+            there's someone who is incredibly grateful
+            that you exist.`
+
+    }
+
+};
+
+
+/* =========================================================
+   TRACK OPENED PETALS
+========================================================= */
+
+let openedPetals =
+    new Set();
+
+
+/* =========================================================
+   PETAL CLICK
+========================================================= */
+
+document
+    .querySelectorAll(".petal")
+    .forEach(
+        petal => {
+
+            petal.addEventListener(
+                "click",
+                () => {
+
+                    const number =
+                        petal.dataset.message;
+
+
+                    const data =
+                        petalMessages[number];
+
+
                     document.getElementById(
-                        "message" +
-                        messageNumber
+                        "petalTitle"
+                    ).innerHTML =
+                        data.title;
+
+
+                    document.getElementById(
+                        "petalText"
+                    ).innerHTML =
+                        data.text;
+
+
+                    document
+                        .getElementById(
+                            "petalOverlay"
+                        )
+                        .classList
+                        .add("active");
+
+
+                    openedPetals.add(
+                        number
                     );
 
 
-                message.classList.add(
-                    "active"
-                );
+                    document.getElementById(
+                        "petalsFound"
+                    ).textContent =
+                        openedPetals.size;
 
 
-                /* Counter */
-
-                petalsPlucked++;
-
-
-                petalsLeft.textContent =
-                    5 -
-                    petalsPlucked;
-
-
-                /* Sparkles */
-
-                createFlowerSparkles(
-                    this
-                );
-
-
-                /* Final petal */
-
-                if (
-                    petalsPlucked === 5
-                ) {
-
-                    setTimeout(() => {
-
-                        const finalReveal =
-                            document.getElementById(
-                                "finalReveal"
-                            );
-
-
-                        finalReveal.classList.add(
-                            "active"
-                        );
-
-
-                        finalReveal.scrollIntoView({
-                            behavior:
-                                "smooth",
-                            block:
-                                "center"
-                        });
-
-                    },1500);
+                    createSparkles(
+                        petal
+                    );
 
                 }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   CLOSE PETAL
+========================================================= */
+
+function closePetal() {
+
+    document
+        .getElementById(
+            "petalOverlay"
+        )
+        .classList
+        .remove("active");
+
+
+    if (
+        openedPetals.size === 5
+    ) {
+
+        setTimeout(
+            () => {
+
+                document
+                    .getElementById(
+                        "finalReveal"
+                    )
+                    .classList
+                    .add("show");
+
+
+                document
+                    .getElementById(
+                        "finalReveal"
+                    )
+                    .scrollIntoView({
+                        behavior:
+                            "smooth",
+                        block:
+                            "center"
+                    });
+
+            },
+            500
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE WHEN CLICKING OUTSIDE
+========================================================= */
+
+document
+    .getElementById(
+        "petalOverlay"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closePetal();
 
             }
-        );
+
+        }
+    );
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closePetal();
+
+        }
 
     }
 );
 
 
-/* =====================================================
-   PETAL SPARKLES
-===================================================== */
+/* =========================================================
+   SPARKLES
+========================================================= */
 
-function createFlowerSparkles(
+function createSparkles(
     element
 ) {
 
     const rect =
         element.getBoundingClientRect();
+
+
+    const symbols = [
+        "✨",
+        "💗",
+        "🌸",
+        "✦"
+    ];
 
 
     for (
@@ -2894,39 +2536,38 @@ function createFlowerSparkles(
 
 
         sparkle.className =
-            "flower-sparkle";
+            "sparkle-pop";
 
 
         sparkle.innerHTML =
-            [
-                "✨",
-                "💗",
-                "🌸",
-                "✦"
-            ][
+            symbols[
                 Math.floor(
-                    Math.random() * 4
+                    Math.random() *
+                    symbols.length
                 )
             ];
 
 
         sparkle.style.left =
-            rect.left +
-            rect.width / 2 +
+            (
+                rect.left +
+                rect.width / 2
+            ) +
             "px";
 
 
         sparkle.style.top =
-            rect.top +
-            rect.height / 2 +
+            (
+                rect.top +
+                rect.height / 2
+            ) +
             "px";
 
 
         sparkle.style.setProperty(
             "--x",
             (
-                Math.random() *
-                180 -
+                Math.random() * 180 -
                 90
             ) +
             "px"
@@ -2936,8 +2577,7 @@ function createFlowerSparkles(
         sparkle.style.setProperty(
             "--y",
             (
-                Math.random() *
-                180 -
+                Math.random() * 180 -
                 90
             ) +
             "px"
@@ -2949,33 +2589,34 @@ function createFlowerSparkles(
         );
 
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            sparkle.remove();
+                sparkle.remove();
 
-        },1300);
+            },
+            1000
+        );
 
     }
 
 }
 
 
-/* =====================================================
-   NEXT SURPRISE PLACEHOLDER
-===================================================== */
+/* =========================================================
+   NEXT SURPRISE
+========================================================= */
 
 function continueSurprise() {
 
     alert(
-        "This is where your next surprise will go ❤️"
+        "The next surprise is coming soon ❤️"
     );
 
 }
 
 </script>
 
-
 </body>
 
 </html>
-```
